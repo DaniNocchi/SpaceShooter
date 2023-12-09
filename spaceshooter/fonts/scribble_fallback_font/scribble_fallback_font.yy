@@ -119,8 +119,8 @@
   "lineHeight": 0,
   "maintainGms1Font": false,
   "parent": {
-    "name": "aaaaaaaaaaaaaaa",
-    "path": "aaaaaaaaaaaaaaa.yyp",
+    "name": "(System - don't call these functions)",
+    "path": "folders/Scribble/(System - don't call these functions).yy",
   },
   "pointRounding": 0,
   "ranges": [

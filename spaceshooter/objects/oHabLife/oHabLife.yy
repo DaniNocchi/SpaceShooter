@@ -2,14 +2,12 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "oHabLife",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-  ],
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "habilities",
+    "path": "folders/Objects/habilities.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -27,10 +25,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "sHabLife",
-    "path": "sprites/sHabLife/sHabLife.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

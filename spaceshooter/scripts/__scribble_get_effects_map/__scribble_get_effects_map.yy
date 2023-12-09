@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "aaaaaaaaaaaaaaa",
-    "path": "aaaaaaaaaaaaaaa.yyp",
+    "name": "Global Static Getters",
+    "path": "folders/Scribble/(System - don't call these functions)/Global Static Getters.yy",
   },
 }

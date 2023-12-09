@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "aaaaaaaaaaaaaaa",
-    "path": "aaaaaaaaaaaaaaa.yyp",
+    "name": "(System - don't call these functions)",
+    "path": "folders/Scribble/(System - don't call these functions).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

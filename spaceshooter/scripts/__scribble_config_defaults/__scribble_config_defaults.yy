@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "aaaaaaaaaaaaaaa",
-    "path": "aaaaaaaaaaaaaaa.yyp",
+    "name": "Configuration - Please edit these!",
+    "path": "folders/Scribble/Configuration - Please edit these!.yy",
   },
 }

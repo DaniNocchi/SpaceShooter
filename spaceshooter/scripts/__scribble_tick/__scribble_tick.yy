@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "aaaaaaaaaaaaaaa",
-    "path": "aaaaaaaaaaaaaaa.yyp",
+    "name": "(System - don't call these functions)",
+    "path": "folders/Scribble/(System - don't call these functions).yy",
   },
 }
