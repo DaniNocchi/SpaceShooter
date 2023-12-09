@@ -1,0 +1,3 @@
+gmda_setController("2196_zV7NX54NLvhiJafu2n0f9XNe8RlupaeLM2OW0b","2196_PYB74kaPfbHiWNldxwbTlYXqPTwcSjKbweZbWO")
+gmda_setLeaderboard("VZrp7no8JKzuvMxmsvdWpgK")
+fakepoints=0

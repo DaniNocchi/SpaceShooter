@@ -1,0 +1,1 @@
+draw_text_scribble(x,y,"[rainbow][wave]+1")

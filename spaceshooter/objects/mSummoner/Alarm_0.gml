@@ -1,0 +1,1 @@
+mcooldown=1

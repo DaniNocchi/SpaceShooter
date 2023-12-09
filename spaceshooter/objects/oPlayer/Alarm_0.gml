@@ -1,0 +1,1 @@
+shotcol=1

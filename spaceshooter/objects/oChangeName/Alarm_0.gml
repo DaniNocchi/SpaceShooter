@@ -1,0 +1,1 @@
+show_message("Restart the game to update")
