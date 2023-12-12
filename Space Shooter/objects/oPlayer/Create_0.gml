@@ -6,12 +6,13 @@ maxspd=3 //the max speed that it can achieve
 //if i make an powerup that raise the speed of the player
 //se how much times you multiplied from the original maxspd
 //and multiply that number the spd too, like
-//if i change the maxspd to 6, change the spd to 0.2 and goes 
+//if i change the maxspd to 6, change the spd to 0.1 and goes 
 //like that
 
 gameovercol=1 //boolean to allow the alarm2 to work
 debugmode=0
 shotcol=1 //cooldown for the shoots
+shotfre=0.3 //shoots frequency
 global.count=0 //how many meteors did you hit
 hitcooldown=1 //cooldown to not die from spam kill
 global.lives=3 //lives
@@ -24,4 +25,4 @@ layer_sequence_destroy(outblack_seq)
 allskip=0
 dead=0
 oldwave=1
-//CONFIGS 
+global.hab3=0

@@ -12,7 +12,7 @@ mudar musicas
 v1.0.3
 Port android
 versao check
-umas 4 habilidades (velocidade, tiro rapido, pontos dobrados, recuperar 1 vida)
+umas 4 habilidades (velocidade, tiro rapido, pontos dobrados, mais 2 jatos de tiro, recuperar 1 vida)
 habilidade aleatorio spawnado a cada wave (global.hab3)
 correção do bug da parede
 

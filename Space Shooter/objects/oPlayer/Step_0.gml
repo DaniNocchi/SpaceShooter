@@ -78,7 +78,7 @@ if (shotcol == 1) {
         bulletInstance.speed = 8;
         bulletInstance.playerBullet = true;
         shotcol = 0;
-        alarm[0] = room_speed * 0.3;
+        alarm[0] = room_speed * shotfre;
     }
 }
 #endregion
@@ -130,17 +130,66 @@ if global.count>wavelimit {
 }
 #endregion
 #region random power spawn
-//if oldwave == global.wave {} else {
-//	global.hab3 = choose(1,2)
-//	oldwave = global.wave
-//	if global.hab3 = 1 && !instance_exists(oHabSpeed) {
-//		var hab1 = instance_create_layer(irandom(1366),irandom(768),layer,oHabSpeed)
-//	
-//	} else if global.hab3 = 2 && !instance_exists(oHabLife) {
-//		var hab2 = instance_create_layer(irandom(1366),irandom(768),layer,oHabLife)
-//	
-//	} //put more powers
-//}
+if oldwave == global.wave {} else {
+	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
+	if _habwillhappen = 1 {
+		
+		
+	var _habrandom = choose(3,4) //choose(1,1,1,2,3,3,3,3,3,3,4,4) //1 speed, 2 life, 3 speed shot, 4 3rows, 5
+	
+	
+	_habwillhappen=0
+	} else if _habwillhappen = 2 {
+		_habwillhappen=0
+		var _habrandom=0
+	}
+	oldwave = global.wave
+	
+	
+	
+	if _habrandom = 1 && !instance_exists(oHabSpeed) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabSpeed)
+		_habrandom=0
+	
+	} else if _habrandom = 2 && !instance_exists(oHabLife) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabLife)
+		_habrandom=0
+	
+	} else if _habrandom = 3 && !instance_exists(oHabSpeedShoot) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabSpeedShoot)
+		_habrandom=0
+		
+	} else if _habrandom = 4 && !instance_exists(oHabTRows) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabTRows)
+		_habrandom=0
+	} //put more powers
+	
+	
+	
+	
+}
 #endregion
 
 #region habilities
+//hab 3
+//speed
+if global.hab3=1 {
+	spd=0.1
+	maxspd=6
+	alarm[3]=room_speed*10
+	global.hab3=0
+}
+//life +1
+if global.hab3=1 {
+	if global.lives=3 {}else {
+		global.lives+=1
+	}
+	global.hab3=0
+	alarm[3]=room_speed*10
+}
+//more frequent bullets
+if global.hab3=3 {
+	shotfre=0.1 
+	alarm[3]=room_speed*10
+	global.hab3=0
+}
