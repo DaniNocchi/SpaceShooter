@@ -10,6 +10,9 @@ if (place_meeting(x, y, oBullet)) {
 	instance_destroy()
     global.mactives -= 1;
     global.count += 1;
+		if global.x2=1 {
+		global.count+=1
+	}
 }
 if place_meeting(x,y,oDestroy) {
 	instance_destroy()

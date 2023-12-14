@@ -1,7 +1,5 @@
 loja
 inventario
-hablidades
-powerups
 outros meteoros
 sistema de coroas
 port android
@@ -11,14 +9,17 @@ mudar musicas
 
 v1.0.3
 Port android
-versao check
-umas 4 habilidades (velocidade, tiro rapido, pontos dobrados, mais 2 jatos de tiro, recuperar 1 vida)
-habilidade aleatorio spawnado a cada wave (global.hab3)
+\versao check
+\-----umas 4 habilidades (velocidade, tiro rapido, pontos dobrados, mais 2 jatos de tiro, recuperar 1 vida)
+-----habilidade aleatorio spawnado a cada wave (global.hab3)
 correção do bug da parede
-
-
-
-
+\mudar a versao do jogo
+\adicionar as changelogs
+\aumentar os creditos
+\adicionar som nas habilidades, qnd pega elas
+easter egg 19/12
+\-----resolver bug da musica
+quit now submit points to scoreboard
 
 loja - 2 botoes em cada habilidade, os dois sao de equipar a habilidade, mas caso ja esteja equipado
 em um dos botoes, o outro bloqueia

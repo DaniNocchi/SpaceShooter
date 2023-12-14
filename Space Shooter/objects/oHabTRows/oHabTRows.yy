@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "the actual hability",
+    "path": "folders/Objects/habilities/the actual hability.yy",
   },
   "parentObjectId": null,
   "persistent": false,

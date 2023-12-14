@@ -16,13 +16,20 @@ shotfre=0.3 //shoots frequency
 global.count=0 //how many meteors did you hit
 hitcooldown=1 //cooldown to not die from spam kill
 global.lives=3 //lives
-move=1
-rotation=1
-wavelimit=25
-global.wave=1
+move=1 //if its alowed to walk
+rotation=1 //if its alowed to rotate
+wavelimit=25 // the amount of points you need to go to another wave
+global.wave=1 //wich wave we are
+
+//transition thing ignore
 outblack_seq = layer_sequence_create("pause",0,0,seoutblack)
 layer_sequence_destroy(outblack_seq)
-allskip=0
-dead=0
-oldwave=1
-global.hab3=0
+
+
+allskip=0 //idk 
+dead=0 //this works? 
+oldwave=1 //check if the wave changed
+global.hab3=0 //hability slot 3
+trows = 0 //if you have the trows hab on
+global.x2=0 //if you have the 2x hab on
+global.hab3disp=0 //displays on oHab3 wich hab youre now 

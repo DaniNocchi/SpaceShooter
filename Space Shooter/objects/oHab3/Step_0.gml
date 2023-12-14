@@ -1,10 +1,17 @@
-
-if global.hab3=1 {
+if global.hab3disp=0 {
+	sprite_index=sEmpty
+}
+if global.hab3disp=1 {
 	sprite_index=sHabSpeed
-	alarm[0]=room_speed*10
 }
-if global.hab3=2 {
-	sprite_index=sHabLife
+if global.hab3disp=2 {
+	sprite_index=sHab2x
 }
-//image_xscale=1.5
-//image_yscale=1.5
+if global.hab3disp=3 {
+	sprite_index=sHabBullets
+}
+if global.hab3disp=4 {
+	sprite_index=sHabTRows
+}
+image_xscale=1.5
+image_yscale=1.5

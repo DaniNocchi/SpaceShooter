@@ -15,6 +15,9 @@ if bmlive>0 { speed=irandom(global.mspd) }
 if bmlive<=0 {
 	global.mactives-=1
 	global.count += 3;
+	if global.x2=1 {
+		global.count+=3
+	}
 	speed=0
 	instance_destroy()
 	instance_create_layer(x,y,layer,oPointsbig)

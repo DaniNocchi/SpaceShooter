@@ -79,6 +79,25 @@ if (shotcol == 1) {
         bulletInstance.playerBullet = true;
         shotcol = 0;
         alarm[0] = room_speed * shotfre;
+		
+		
+		
+		
+		if trows = 1 {
+			var bulletInstance = instance_create_layer(x, y,"everything",oBulletQuiet);
+		   bulletInstance.direction = point_direction(x, y, mouse_x+30, mouse_y+30);
+		   bulletInstance.speed = 8;
+	        bulletInstance.playerBullet = true;
+		    shotcol = 0;
+		    alarm[0] = room_speed * shotfre;
+			
+			var bulletInstance = instance_create_layer(x, y,"everything",oBulletQuiet);
+		   bulletInstance.direction = point_direction(x, y, mouse_x-30, mouse_y-30);
+		   bulletInstance.speed = 8;
+	        bulletInstance.playerBullet = true;
+		    shotcol = 0;
+		    alarm[0] = room_speed * shotfre;
+		}
     }
 }
 #endregion
@@ -131,11 +150,11 @@ if global.count>wavelimit {
 #endregion
 #region random power spawn
 if oldwave == global.wave {} else {
-	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
+	var _habwillhappen = choose(1,2) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
 		
 		
-	var _habrandom = choose(3,4) //choose(1,1,1,2,3,3,3,3,3,3,4,4) //1 speed, 2 life, 3 speed shot, 4 3rows, 5
+	var _habrandom = choose(1,1,1,2,3,3,3,3,4,4) //1 speed, 2 life, 3 speed shot, 4 trows
 	
 	
 	_habwillhappen=0
@@ -144,32 +163,24 @@ if oldwave == global.wave {} else {
 		var _habrandom=0
 	}
 	oldwave = global.wave
-	
-	
-	
 	if _habrandom = 1 && !instance_exists(oHabSpeed) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabSpeed)
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeed)
 		_habrandom=0
 	
-	} else if _habrandom = 2 && !instance_exists(oHabLife) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabLife)
+	} else if _habrandom = 2 && !instance_exists(oHab2x) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHab2x)
 		_habrandom=0
 	
 	} else if _habrandom = 3 && !instance_exists(oHabSpeedShoot) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabSpeedShoot)
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeedShoot)
 		_habrandom=0
 		
 	} else if _habrandom = 4 && !instance_exists(oHabTRows) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),layer,oHabTRows)
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTRows)
 		_habrandom=0
 	} //put more powers
-	
-	
-	
-	
 }
 #endregion
-
 #region habilities
 //hab 3
 //speed
@@ -177,19 +188,28 @@ if global.hab3=1 {
 	spd=0.1
 	maxspd=6
 	alarm[3]=room_speed*10
+	global.hab3disp=1
 	global.hab3=0
 }
-//life +1
-if global.hab3=1 {
-	if global.lives=3 {}else {
-		global.lives+=1
-	}
+//2x
+if global.hab3=2 {
+	global.x2=1
 	global.hab3=0
+	global.hab3disp=2
 	alarm[3]=room_speed*10
 }
 //more frequent bullets
 if global.hab3=3 {
 	shotfre=0.1 
 	alarm[3]=room_speed*10
+	global.hab3disp=3
 	global.hab3=0
 }
+//TRows
+if global.hab3=4 {
+	trows = 1
+	alarm[3]=room_speed*10
+	global.hab3disp=4
+	global.hab3=0
+}
+#endregion
