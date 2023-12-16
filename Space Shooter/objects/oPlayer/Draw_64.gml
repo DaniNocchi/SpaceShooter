@@ -19,4 +19,7 @@ draw_set_halign(fa_middle)
 draw_set_font(fGameover2)
 draw_text(x,y-70,"Points = "+string(global.count))
 draw_set_font(fGameover)
+if outwarn = 1 {
+draw_text_scribble(670,375,"[c_red][SHAKE]YOU ARE OUTSIDE THE GAME, RETURN NOW")
+} else {}
 draw_text(670,10,"Wave "+string(global.wave))

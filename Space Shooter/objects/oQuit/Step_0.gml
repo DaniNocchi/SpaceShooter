@@ -8,6 +8,7 @@ if place_meeting(x,y,oMouse) {
 			if !layer_sequence_exists("sequences",inblack_seq) {
 				inblack_seq = layer_sequence_create("sequences",0,0,seinblack)
 				inblack=1
+				gmda_submit(1,global.count)
 				global.menudeac=1
 			}
 		}

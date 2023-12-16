@@ -7,20 +7,6 @@ keyup = keyboard_check(vk_up) or keyboard_check(ord("W"))
 keymbl = mouse_check_button(mb_left) or keyboard_check(vk_space)
 }
 #endregion
-#region colisions
-if place_meeting (x+hspd,y,oWall) {
-	while !place_meeting(x+sign(hspd),y,oWall) {
-		x+=sign(hspd)
-	}
-	hspd=0
-}
-if place_meeting (x,y+vspd,oWall) {
-	while !place_meeting(x,y+sign(vspd),oWall) {
-		y+=sign(vspd)
-	}
-	vspd=0
-}
-#endregion
 #region walk
 x+=hspd
 y+=vspd
@@ -101,7 +87,7 @@ if (shotcol == 1) {
     }
 }
 #endregion
-#region lifes
+#region damage (meteors)
 if hitcooldown=1 {
 	if place_meeting(x,y,oBigmeteor) or place_meeting(x,y,oSmallmeteor) { 
 		sprite_index=sPhit
@@ -111,6 +97,18 @@ if hitcooldown=1 {
 		audio_play_sound(sHit,1,0)
 	}
 }
+#endregion
+#region damage (wall)
+if hitcooldown=1 {
+	if place_meeting(x,y,oWall) { 
+		sprite_index=sPhit
+		alarm[1]=room_speed*3
+		global.lives-=1
+		hitcooldown=0
+		audio_play_sound(sHit,1,0)
+	} 
+}
+if place_meeting(x,y,oWall) {outwarn=1} else {outwarn=0}
 #endregion
 #region gameover
 if global.lives<=0 {

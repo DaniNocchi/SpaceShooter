@@ -9,6 +9,7 @@ maxspd=3 //the max speed that it can achieve
 //if i change the maxspd to 6, change the spd to 0.1 and goes 
 //like that
 
+outwarn=0 //actives the message that appear when youre out
 gameovercol=1 //boolean to allow the alarm2 to work
 debugmode=0
 shotcol=1 //cooldown for the shoots

@@ -1,1 +1,0 @@
-global.snow=0
