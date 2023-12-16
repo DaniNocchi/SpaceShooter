@@ -148,11 +148,11 @@ if global.count>wavelimit {
 #endregion
 #region random power spawn
 if oldwave == global.wave {} else {
-	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
+	var _habwillhappen = choose(1,2) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
 		
 		
-	var _habrandom = choose(4)// choose(1,1,1,2,3,3,3,3,4,4) //1 speed, 2 life, 3 speed shot, 4 trows
+	var _habrandom = choose(1,1,1,2,3,3,3,3,4,4) //1 speed, 2 life, 3 speed shot, 4 trows
 	
 	
 	_habwillhappen=0
