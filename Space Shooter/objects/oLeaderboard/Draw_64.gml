@@ -38,7 +38,7 @@ if room=Menu {
 		draw_text(270,275,"SCORE")
 		draw_set_font(fDefault)
 		draw_set_halign(fa_left)
-		draw_text_scribble(5,745,"[wave][rainbow]Version 1.0.3.0")
+		draw_text_scribble(5,745,"[wave][rainbow]Version 1.0.3.1")
 		
 	
 	

@@ -6,11 +6,23 @@ if (place_meeting(x, y, oBullet)) {
             instance_destroy(bulletInstance);
         }
 	}
-    //-----\\
-	audio_play_sound(sBMstanding,1,0)
+	if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}
 	bmlive-=1
 }
-
+if (place_meeting(x, y, oBulletQuiet)) {
+	//-----\\ destroy bullet
+    var bulletInstanceQuiet = instance_place(x, y, oBulletQuiet);
+    if (bulletInstanceQuiet != noone) {
+        if (bulletInstanceQuiet.playerBullet) {
+            instance_destroy(bulletInstanceQuiet);
+        }
+	}
+	if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}
+	bmlive-=1
+}
+	
+	
+    //-----\\
 if bmlive>0 { speed=irandom(global.mspd) }
 if bmlive<=0 {
 	global.mactives-=1
@@ -21,7 +33,7 @@ if bmlive<=0 {
 	speed=0
 	instance_destroy()
 	instance_create_layer(x,y,layer,oPointsbig)
-	audio_play_sound(sExplosion,1,0)
+	if !audio_is_playing(sExplosion) {audio_play_sound(sExplosion,1,0)}
 }
 
 if place_meeting(x,y,oDestroy) {

@@ -5,7 +5,24 @@ if (place_meeting(x, y, oBullet)) {
             instance_destroy(bulletInstance);
         }
 	}
-	audio_play_sound(sExplosion,1,0)
+	
+	if !audio_is_playing(sExplosion) {audio_play_sound(sExplosion,1,0)}
+	instance_create_layer(x,y,layer,oPointssmall)
+	instance_destroy()
+    global.mactives -= 1;
+    global.count += 1;
+		if global.x2=1 {
+		global.count+=1
+	}
+}
+if (place_meeting(x, y, oBulletQuiet)) {
+    var bulletInstanceQuiet = instance_place(x, y, oBulletQuiet);
+    if (bulletInstanceQuiet != noone) {
+        if (bulletInstanceQuiet.playerBullet) {
+            instance_destroy(bulletInstanceQuiet);
+        }
+	}
+	if !audio_is_playing(sExplosion) {audio_play_sound(sExplosion,1,0)}
 	instance_create_layer(x,y,layer,oPointssmall)
 	instance_destroy()
     global.mactives -= 1;
