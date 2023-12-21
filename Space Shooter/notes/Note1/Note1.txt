@@ -7,13 +7,13 @@ sistema de versao check
 mudar musicas
 resolver bug da musica
 
-v1.0.3
------correção do bug da parede
-\-----mudar a versao do jogo
-\adicionar som nas habilidades, qnd pega elas
-V1.0.3.1
-port android beta edition
-resolver bug da musica
+vAndroid
+mouse soh aparecer quando tiver clicando na tela
+botoes pra andar
+botao pra abrir menu e voltar
+consertar o bug de simplesmente o jogo crashar na tela inicial
+consertar o bug de nao conseguir mudar o nome
+todos os botoes ja clicarem soh por ter o mouse encostando (tirando os de config pq bugaria mt)
 
 
 
