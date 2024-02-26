@@ -1,19 +1,35 @@
-loja
-inventario
-outros meteoros
-sistema de coroas
-port android
-sistema de versao check
-mudar musicas
-resolver bug da musica
+1.1
+botar um "sobre mim" pra explicar tudo sobre o jogo
+sistema pra checar se o jogo ta na versao mais recente
+botar eastereggs:
+-Clicar no meu nome no copyright da um som
+-digitar o konami code faz um som
+-
+-
+-
 
-vAndroid
-mouse soh aparecer quando tiver clicando na tela
-botoes pra andar
-botao pra abrir menu e voltar
-consertar o bug de simplesmente o jogo crashar na tela inicial
-consertar o bug de nao conseguir mudar o nome
-todos os botoes ja clicarem soh por ter o mouse encostando (tirando os de config pq bugaria mt)
+animação da logo do "DaniNocchi Studios"
+trocar sprites que não sejam meus
+mais power ups (perguntar os powerups)
+botar uma coroa no top 1 
+mudar musicas
+sistema de loja
+skins diferentes
+sistema de economia
+inventario
+lançar no itch.io
+
+
+1.2 
+Trocar todos os sons pra originais do jogo
+botar um tutorial
+botar sistema de missões
+sistema de linguas (ingles, portugues, espanhol, mais em breve)
+lançar na steam
+
+
+
+
 
 
 

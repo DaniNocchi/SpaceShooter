@@ -1,4 +1,4 @@
-if place_meeting(x,y,oMouse) {
+if place_meeting(x, y, oMouse) {
 	sprite_index=sMenustartdark
 	if mouse_check_button_released(mb_left) && global.menudeac=0 {
 		audio_play_sound(sInteract,1,0)
@@ -11,10 +11,6 @@ if place_meeting(x,y,oMouse) {
 } else {
 	sprite_index=sMenustart
 }
-
-
-
-
 if inblack=1 {
 	if layer_sequence_is_finished(inblack_seq) {
 		layer_sequence_destroy(inblack_seq)

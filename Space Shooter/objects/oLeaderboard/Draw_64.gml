@@ -38,9 +38,12 @@ if room=Menu {
 		draw_text(270,275,"SCORE")
 		draw_set_font(fDefault)
 		draw_set_halign(fa_left)
-		draw_text_scribble(5,745,"[wave][rainbow]Version 1.0.3.1")
-		
-	
+	  // --------------------------------------------------
+		draw_text(15,280+ 25*6,"-------------------------------")
+		draw_text(15,280+ 25*7,"#"+string(pos)+" "+string(playername))
+		draw_set_halign(fa_right)	
+		draw_text(270,280+ 25*7,string(bestscore))
+
 	
 	
 			draw_set_font(fScoreboard3)
@@ -55,8 +58,8 @@ if room=Menu {
 }
 		#region if you are the number 1----------------------------------------------
 		if i=1 {
-			draw_set_halign(fa_left)
-			draw_text_scribble(15,280+ 25*i,      "[wave][rainbow]#"+string(i)+" "+string(name))
+			draw_set_halign(fa_left) 
+			draw_text_scribble(15,280+ 25*i,"[wave][rainbow]#"+string(i)+" "+string(name))
 			draw_set_halign(fa_right)
 			draw_text_scribble(270,280+ 25*i,"[rainbow]"+string(xscore))
 		}
@@ -66,11 +69,7 @@ if room=Menu {
 		#endregion
 	#endregion
 #endregion
+if room=Menu {
 draw_set_halign(fa_left)
-//			#region the bar and stuff--------------------------------------------------
-//			draw_set_halign(fa_left)
-//			draw_text(15,280+ 25*6,"-------------------------------")
-//			draw_text(15,280+ 25*7,"#"+string(pos)+" "+string(playername))
-//			draw_set_halign(fa_right)
-//			draw_text(270,280+ 25*7,string(bestscore))
-//		#endregion
+draw_text_scribble(5,745,"[wave][rainbow]Definitive Editon (1.0.4)")
+}
