@@ -22,7 +22,7 @@ rotation=1 //if its alowed to rotate
 wavelimit=25 // the amount of points you need to go to another wave
 global.wave=1 //wich wave we are
 
-//transition thing ignore
+//transition thing, ignore
 outblack_seq = layer_sequence_create("pause",0,0,seoutblack)
 layer_sequence_destroy(outblack_seq)
 
@@ -33,4 +33,7 @@ oldwave=1 //check if the wave changed
 global.hab3=0 //hability slot 3
 trows = 0 //if you have the trows hab on
 global.x2=0 //if you have the 2x hab on
-global.hab3disp=0 //displays on oHab3 wich hab youre now 
+global.hab3disp=0 //displays on oHab3 wich hab youre now
+global.destroyshield=0 //destroys the shield from the hability after the 10 sec
+global.mspd=2 //meteor speed
+global.mrot=1 //rotation of the meteor, if it rotates or not

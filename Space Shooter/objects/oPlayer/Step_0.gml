@@ -113,6 +113,7 @@ if place_meeting(x,y,oWall) {outwarn=1} else {outwarn=0}
 #region gameover
 if global.lives<=0 {
 	gmda_submit(1,global.count)
+	
 	instance_deactivate_all(true)
 	rotation=0
 	hspd=0
@@ -143,18 +144,14 @@ if global.count>wavelimit {
 	wavelimit+=25
 	global.mlimit+=5
 	global.wave+=1
-	global.mspd+=0.50
 }
 #endregion
 #region random power spawn
 if oldwave == global.wave {} else {
-	var _habwillhappen = choose(1,2) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
+	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
-		
-		
-	var _habrandom = choose(1,1,1,2,3,3,3,3,4,4) //1 speed, 2 life, 3 speed shot, 4 trows
-	
-	
+	//var _habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
+var _habrandom = choose(6) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
 	_habwillhappen=0
 	} else if _habwillhappen = 2 {
 		_habwillhappen=0
@@ -176,6 +173,15 @@ if oldwave == global.wave {} else {
 	} else if _habrandom = 4 && !instance_exists(oHabTRows) {
 		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTRows)
 		_habrandom=0
+	
+	} else if _habrandom = 5 && !instance_exists(oHabShield) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabShield)
+		_habrandom=0
+	
+	} else if _habrandom = 6 && !instance_exists(oHabTFreeze) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTFreeze)
+		_habrandom=0
+		
 	} //put more powers
 }
 #endregion
@@ -208,6 +214,20 @@ if global.hab3=4 {
 	trows = 1
 	alarm[3]=room_speed*10
 	global.hab3disp=4
+	global.hab3=0
+}
+//Shield
+if global.hab3=5 {
+	var shieldInstance = instance_create_layer(x, y,"everything",oShield);
+	alarm[3]=room_speed*15
+	global.hab3disp=5
+	global.hab3=0
+}
+if global.hab3=6 {
+	global.mspd=0
+	global.mrot=0
+	alarm[3]=room_speed*10
+	global.hab3disp=6
 	global.hab3=0
 }
 #endregion

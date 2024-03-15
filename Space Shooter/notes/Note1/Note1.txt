@@ -1,28 +1,30 @@
-1.1
-botar um "sobre mim" pra explicar tudo sobre o jogo
-sistema pra checar se o jogo ta na versao mais recente
+1.0.4
 botar eastereggs:
--Clicar no meu nome no copyright da um som
--digitar o konami code faz um som
--
--
+-----Clicar no meu nome no copyright da um som
+-----digitar o konami code faz um som
+
+mais power ups:
+-----escudo
+-----time freeze
 -
 
-animação da logo do "DaniNocchi Studios"
-trocar sprites que não sejam meus
-mais power ups (perguntar os powerups)
-botar uma coroa no top 1 
+-----botar uma coroa no top 1 
+-----mudar os creditos
+-----mudar o changelog
 mudar musicas
-sistema de loja
-skins diferentes
-sistema de economia
-inventario
+sistema pra checar se o jogo ta na versao mais recente
+animação da logo do "DaniNocchi Studios"
+fazer um banner pro jogo
 lançar no itch.io
 
 
-1.2 
+1.1
 Trocar todos os sons pra originais do jogo
 botar um tutorial
+sistema de economia
+sistema de loja
+skins diferentes
+inventario
 botar sistema de missões
 sistema de linguas (ingles, portugues, espanhol, mais em breve)
 lançar na steam

@@ -8,4 +8,10 @@ trows=0
 
 global.x2=0
 
+global.destroyshield=1
+
+global.mspd=2
+global.mrot=1
+
 global.hab3disp=0
+

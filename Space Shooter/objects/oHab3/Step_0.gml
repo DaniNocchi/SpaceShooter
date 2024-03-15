@@ -13,5 +13,11 @@ if global.hab3disp=3 {
 if global.hab3disp=4 {
 	sprite_index=sHabTRows
 }
+if global.hab3disp=5 {
+	sprite_index=sHabShield
+}
+if global.hab3disp=6 {
+	sprite_index=sHabTFreeze
+}
 image_xscale=1.5
 image_yscale=1.5
