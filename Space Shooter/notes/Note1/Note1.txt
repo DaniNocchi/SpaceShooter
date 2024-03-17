@@ -18,7 +18,7 @@ fazer um banner pro jogo
 lançar no itch.io
 
 
-1.1
+1.1  
 Trocar todos os sons pra originais do jogo
 botar um tutorial
 sistema de economia
