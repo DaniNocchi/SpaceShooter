@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "Shader7",
-  "parent": {
-    "name": "Sequences",
-    "path": "folders/Sequences.yy",
+  "$GMShader":"",
+  "%Name":"Shader7",
+  "name":"Shader7",
+  "parent":{
+    "name":"Sequences",
+    "path":"folders/Sequences.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

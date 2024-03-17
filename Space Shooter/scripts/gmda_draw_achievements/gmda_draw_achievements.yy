@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "gmda_draw_achievements",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "TOOLS",
-    "path": "folders/Scripts/TOOLS.yy",
+  "$GMScript":"",
+  "%Name":"gmda_draw_achievements",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"gmda_draw_achievements",
+  "parent":{
+    "name":"TOOLS",
+    "path":"folders/Scripts/TOOLS.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

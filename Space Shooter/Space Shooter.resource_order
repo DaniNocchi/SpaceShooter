@@ -1,6 +1,6 @@
 {
-  "FolderOrderSettings": [],
-  "ResourceOrderSettings": [
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
     {"name":"oLifebar","order":3,"path":"objects/oLifebar/oLifebar.yy",},
     {"name":"oBullet","order":2,"path":"objects/oBullet/oBullet.yy",},
     {"name":"oPause","order":3,"path":"objects/oPause/oPause.yy",},
