@@ -1,8 +1,4 @@
 1.0.4
-botar eastereggs:
------Clicar no meu nome no copyright da um som
------digitar o konami code faz um som
-
 mais power ups:
 -----escudo
 -----time freeze
@@ -12,7 +8,6 @@ mais power ups:
 -----mudar os creditos
 -----mudar o changelog
 mudar musicas
-sistema pra checar se o jogo ta na versao mais recente
 animação da logo do "DaniNocchi Studios"
 fazer um banner pro jogo
 lançar no itch.io

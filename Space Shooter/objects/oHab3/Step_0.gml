@@ -19,5 +19,8 @@ if global.hab3disp=5 {
 if global.hab3disp=6 {
 	sprite_index=sHabTFreeze
 }
+if global.hab3disp=7 {
+	sprite_index=sHabTFreeze
+}
 image_xscale=1.5
 image_yscale=1.5

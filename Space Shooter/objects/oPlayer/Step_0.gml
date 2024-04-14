@@ -56,35 +56,49 @@ if rotation=1 {
 	image_angle= point_direction(x,y,mouse_x,mouse_y)
 }
 #endregion
-#region shots
-if (shotcol == 1) {
-    if (keymbl) {
-        var bulletInstance = instance_create_layer(x, y,"everything",oBullet);
-        bulletInstance.direction = point_direction(x, y, mouse_x, mouse_y);
-        bulletInstance.speed = 8;
-        bulletInstance.playerBullet = true;
-        shotcol = 0;
-        alarm[0] = room_speed * shotfre;
-		
-		
-		
-		
+#region shot (normal)
+if global.bombs=0 {
+	if (shotcol == 1) {
+	    if (keymbl) {
+	        var bulletInstance = instance_create_layer(x, y,"everything",oBullet);
+	        bulletInstance.direction = point_direction(x, y, mouse_x, mouse_y);
+	        bulletInstance.speed = 8;
+	        bulletInstance.playerBullet = true;
+	        shotcol = 0;
+	        alarm[0] = room_speed * shotfre;
+		}
+	}
+}
+#endregion
+#region shot (three rows)
+if global.bombs=0 {
+	if (shotcol == 1) {
 		if trows = 1 {
 			var bulletInstance = instance_create_layer(x, y,"everything",oBulletQuiet);
-		   bulletInstance.direction = point_direction(x, y, mouse_x+30, mouse_y+30);
-		   bulletInstance.speed = 8;
-	        bulletInstance.playerBullet = true;
-		    shotcol = 0;
-		    alarm[0] = room_speed * shotfre;
+			bulletInstance.direction = point_direction(x, y, mouse_x+30, mouse_y+30);
+			bulletInstance.speed = 8;
+		    bulletInstance.playerBullet = true;
+			shotcol = 0;
+			alarm[0] = room_speed * shotfre;
 			
 			var bulletInstance = instance_create_layer(x, y,"everything",oBulletQuiet);
-		   bulletInstance.direction = point_direction(x, y, mouse_x-30, mouse_y-30);
-		   bulletInstance.speed = 8;
-	        bulletInstance.playerBullet = true;
-		    shotcol = 0;
-		    alarm[0] = room_speed * shotfre;
+			bulletInstance.direction = point_direction(x, y, mouse_x-30, mouse_y-30);
+			bulletInstance.speed = 8;
+		    bulletInstance.playerBullet = true;
+			shotcol = 0;
+			alarm[0] = room_speed * shotfre;
 		}
-    }
+	}
+} else if global.bombs>0 {
+#endregion
+#region shot (bombs)
+if (shotcol == 1) {
+    if (keymbl) {
+        instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
+        shotcol = 0;
+        alarm[0] = room_speed * 3;
+	}
+} 
 }
 #endregion
 #region damage (meteors)
@@ -146,43 +160,51 @@ if global.count>wavelimit {
 	global.wave+=1
 }
 #endregion
-#region random power spawn
-if oldwave == global.wave {} else {
+#region random hability spawner system
+if oldwave != global.wave {
 	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
 	//var _habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
-var _habrandom = choose(6) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
+	var _habrandom = choose(7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
 	_habwillhappen=0
 	} else if _habwillhappen = 2 {
 		_habwillhappen=0
 		var _habrandom=0
 	}
 	oldwave = global.wave
+}
+#endregion
+#region habilities lil' square thingy that spawn yk
+if oldwave != global.wave {
 	if _habrandom = 1 && !instance_exists(oHabSpeed) {
 		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeed)
 		_habrandom=0
-	
+
 	} else if _habrandom = 2 && !instance_exists(oHab2x) {
 		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHab2x)
 		_habrandom=0
-	
+
 	} else if _habrandom = 3 && !instance_exists(oHabSpeedShoot) {
 		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeedShoot)
 		_habrandom=0
-		
+	
 	} else if _habrandom = 4 && !instance_exists(oHabTRows) {
 		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTRows)
 		_habrandom=0
-	
+
 	} else if _habrandom = 5 && !instance_exists(oHabShield) {
 		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabShield)
 		_habrandom=0
-	
-	} else if _habrandom = 6 && !instance_exists(oHabTFreeze) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTFreeze)
+
+	} else if _habrandom = 6 && !instance_exists(oHabFreeze) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabFreeze)
 		_habrandom=0
-		
-	} //put more powers
+	
+	} else if _habrandom = 7 && !instance_exists(oHabBombs) {
+		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabBombs)
+		_habrandom=0
+	
+	}//put more powers
 }
 #endregion
 #region habilities
@@ -229,5 +251,17 @@ if global.hab3=6 {
 	alarm[3]=room_speed*10
 	global.hab3disp=6
 	global.hab3=0
+}
+if global.hab3=7 {
+	global.bombs=5
+	global.hab3disp=7
+	global.hab3=0
+	hab3dispbomb=1
+}
+#endregion
+#region bug fixes
+if hab3dispbomb=1 && global.bombs=0 {
+	global.hab3disp=0
+	hab3dispbomb=0
 }
 #endregion

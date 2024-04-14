@@ -37,3 +37,5 @@ global.hab3disp=0 //displays on oHab3 wich hab youre now
 global.destroyshield=0 //destroys the shield from the hability after the 10 sec
 global.mspd=2 //meteor speed
 global.mrot=1 //rotation of the meteor, if it rotates or not
+global.bombs=0 //how many bombs you still have
+hab3dispbomb=0 //bug fix that the bomb icon would just be there even after the effect

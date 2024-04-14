@@ -1,16 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"oHabTFreeze",
+  "%Name":"oBomb",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"oHabTFreeze",
+  "name":"oBomb",
   "overriddenProperties":[],
   "parent":{
-    "name":"the actual hability",
-    "path":"folders/Objects/habilities/the actual hability.yy",
+    "name":"bomb",
+    "path":"folders/Objects/bomb.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sHab2x",
-    "path":"sprites/sHab2x/sHab2x.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

@@ -1,15 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"eeDaniNocchi",
+  "%Name":"oArea",
   "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"eeDaniNocchi",
+  "name":"oArea",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"bomb",
+    "path":"folders/Objects/bomb.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sEmptysmall",
-    "path":"sprites/sEmptysmall/sEmptysmall.yy",
+    "name":"sArea",
+    "path":"sprites/sArea/sArea.yy",
   },
   "spriteMaskId":null,
   "visible":true,

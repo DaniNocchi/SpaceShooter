@@ -1,18 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"oVersionCheck",
+  "%Name":"oHabFreeze",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":62,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"oVersionCheck",
+  "name":"oHabFreeze",
   "overriddenProperties":[],
   "parent":{
-    "name":"controllers",
-    "path":"folders/Objects/controllers.yy",
+    "name":"the actual hability",
+    "path":"folders/Objects/habilities/the actual hability.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sHabTFreeze",
+    "path":"sprites/sHabTFreeze/sHabTFreeze.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
