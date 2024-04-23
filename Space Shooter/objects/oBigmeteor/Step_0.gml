@@ -6,7 +6,7 @@ if (place_meeting(x, y, oBullet)) {
             instance_destroy(bulletInstance);
         }
 	}
-	if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}
+	if bmlive>1 {if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}}
 	bmlive-=1
 }
 if (place_meeting(x, y, oBulletQuiet)) {
@@ -17,14 +17,15 @@ if (place_meeting(x, y, oBulletQuiet)) {
             instance_destroy(bulletInstanceQuiet);
         }
 	}
-	if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}
+	if bmlive>1 {if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}}
 	bmlive-=1
 }
 if (place_meeting(x, y, oShield)) {
-	if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}
 	bmlive=0
 }
-	
+if (place_meeting(x, y, oArea)) {
+	bmlive=0
+}
     //-----\\
 speed=global.mspd
 if bmlive<=0 {
