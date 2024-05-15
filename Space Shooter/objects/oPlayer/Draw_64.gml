@@ -14,12 +14,24 @@ draw_text(15,150,string(global.pause)+" pause")
 draw_text(15,165,string(global.musicvolume)+" music volume")
 draw_text(15,180,string(global.soundsvolume)+" sounds volume")
 draw_text(15,195,string(global.mspd)+" meteors speed")
+draw_text(15,210,string(habrandom)+" hab random")
+draw_text(15,225,string(global.bombs)+" bombs")
+draw_text(15,240,string(global.hab3)+" hab 3")
+draw_text(15,255,string(global.hab3disp)+" hab 3 display")
+draw_text(15,270,string(global.mrot)+" meteor rotation")
+draw_text(15,285,string(global.mspd)+" meteor speed")
+draw_text(15,300,string(global.bdamage)+" bomb damage")
 }
+
+
 draw_set_halign(fa_middle)
 draw_set_font(fGameover2)
-draw_text(x,y-70,"Points = "+string(global.count))
+draw_text(x,y-70,string(global.count)+" Points")
+if global.bombs>0 {
+	draw_text(x,y-85,string(global.bombs)+" bombs left")
+}
 draw_set_font(fGameover)
 if outwarn = 1 {
-draw_text_scribble(670,375,"[c_red][SHAKE]YOU ARE OUTSIDE THE GAME, RETURN NOW")
-} else {}
+draw_text_scribble(670,375,"[c_red][SHAKE]YOU ARE OUTSIDE THE GAME, RETURN NOW") //i got scared reading this 
+}
 draw_text(670,10,"Wave "+string(global.wave))

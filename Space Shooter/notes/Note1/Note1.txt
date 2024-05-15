@@ -2,7 +2,7 @@
 mais power ups:
 -----escudo
 -----time freeze
--
+- bombas
 
 -----botar uma coroa no top 1 
 -----mudar os creditos

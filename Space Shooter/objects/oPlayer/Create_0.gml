@@ -16,19 +16,18 @@ shotcol=1 //cooldown for the shoots
 shotfre=0.3 //shoots frequency
 global.count=0 //how many meteors did you hit
 hitcooldown=1 //cooldown to not die from spam kill
-global.lives=3 //lives
-move=1 //if its alowed to walk
+global.lives=3 //lives, isnt this clear???
+move=1 //if its alowed to walk, no shit sherlock
 rotation=1 //if its alowed to rotate
 wavelimit=25 // the amount of points you need to go to another wave
-global.wave=1 //wich wave we are
+global.wave=1 //wich wave we are (idk man sorry)
 
 //transition thing, ignore
 outblack_seq = layer_sequence_create("pause",0,0,seoutblack)
 layer_sequence_destroy(outblack_seq)
 
-
-allskip=0 //idk 
-dead=0 //this works? 
+allskip=0 //i literally dont know what this dude does
+dead=0 //this works? edit from the future: yeah it works, but i dont know its propose anymore
 oldwave=1 //check if the wave changed
 global.hab3=0 //hability slot 3
 trows = 0 //if you have the trows hab on
@@ -39,3 +38,6 @@ global.mspd=2 //meteor speed
 global.mrot=1 //rotation of the meteor, if it rotates or not
 global.bombs=0 //how many bombs you still have
 hab3dispbomb=0 //bug fix that the bomb icon would just be there even after the effect
+habrandom=0
+global.bdamage=0
+boolreload=0

@@ -74,7 +74,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.2.0.132",
+    "IDEVersion":"2024.4.0.137",
   },
   "name":"Space Shooter",
   "resources":[
@@ -266,6 +266,7 @@
     {"id":{"name":"sebombfall","path":"sequences/sebombfall/sebombfall.yy",},},
     {"id":{"name":"seChangelog","path":"sequences/seChangelog/seChangelog.yy",},},
     {"id":{"name":"seCredits","path":"sequences/seCredits/seCredits.yy",},},
+    {"id":{"name":"seExplosion","path":"sequences/seExplosion/seExplosion.yy",},},
     {"id":{"name":"seGameover","path":"sequences/seGameover/seGameover.yy",},},
     {"id":{"name":"seinblack","path":"sequences/seinblack/seinblack.yy",},},
     {"id":{"name":"seOptions","path":"sequences/seOptions/seOptions.yy",},},
@@ -293,6 +294,7 @@
     {"id":{"name":"sBackground","path":"sprites/sBackground/sBackground.yy",},},
     {"id":{"name":"sBase","path":"sprites/sBase/sBase.yy",},},
     {"id":{"name":"sBlack","path":"sprites/sBlack/sBlack.yy",},},
+    {"id":{"name":"sBomb","path":"sprites/sBomb/sBomb.yy",},},
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},},
     {"id":{"name":"sButtonTemplate","path":"sprites/sButtonTemplate/sButtonTemplate.yy",},},
     {"id":{"name":"sButtontemplate30","path":"sprites/sButtontemplate30/sButtontemplate30.yy",},},
@@ -342,7 +344,6 @@
     {"id":{"name":"sPlusdark","path":"sprites/sPlusdark/sPlusdark.yy",},},
     {"id":{"name":"Sprite5","path":"sprites/Sprite5/Sprite5.yy",},},
     {"id":{"name":"Sprite50","path":"sprites/Sprite50/Sprite50.yy",},},
-    {"id":{"name":"sBomb","path":"sprites/sBomb/sBomb.yy",},},
     {"id":{"name":"sResumedark","path":"sprites/sResumedark/sResumedark.yy",},},
     {"id":{"name":"sResumelight","path":"sprites/sResumelight/sResumelight.yy",},},
     {"id":{"name":"sShield","path":"sprites/sShield/sShield.yy",},},

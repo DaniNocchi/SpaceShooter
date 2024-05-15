@@ -56,6 +56,7 @@ if rotation=1 {
 	image_angle= point_direction(x,y,mouse_x,mouse_y)
 }
 #endregion
+
 #region shot (normal)
 if global.bombs=0 {
 	if (shotcol == 1) {
@@ -97,10 +98,12 @@ if (shotcol == 1) {
         instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
         shotcol = 0;
         alarm[0] = room_speed * 3;
+		global.breload=0
 	}
 } 
 }
 #endregion
+
 #region damage (meteors)
 if hitcooldown=1 {
 	if place_meeting(x,y,oBigmeteor) or place_meeting(x,y,oSmallmeteor) { 
@@ -150,9 +153,11 @@ if global.lives<=0 {
 	}
 }
 #endregion
+
 #region debug mode
 if keyboard_check_released(vk_alt) {if debugmode=0 {debugmode=1} else {debugmode=0}}
 #endregion
+
 #region waves
 if global.count>wavelimit {
 	wavelimit+=25
@@ -160,52 +165,45 @@ if global.count>wavelimit {
 	global.wave+=1
 }
 #endregion
+
 #region random hability spawner system
+
 if oldwave != global.wave {
-	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
+	var _habwillhappen = choose(1,2) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
-	//var _habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
-	var _habrandom = choose(7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
+	habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
+	//habrandom = 7 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
 	_habwillhappen=0
 	} else if _habwillhappen = 2 {
 		_habwillhappen=0
-		var _habrandom=0
+		habrandom=0
 	}
 	oldwave = global.wave
 }
 #endregion
 #region habilities lil' square thingy that spawn yk
-if oldwave != global.wave {
-	if _habrandom = 1 && !instance_exists(oHabSpeed) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeed)
-		_habrandom=0
-
-	} else if _habrandom = 2 && !instance_exists(oHab2x) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHab2x)
-		_habrandom=0
-
-	} else if _habrandom = 3 && !instance_exists(oHabSpeedShoot) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeedShoot)
-		_habrandom=0
-	
-	} else if _habrandom = 4 && !instance_exists(oHabTRows) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTRows)
-		_habrandom=0
-
-	} else if _habrandom = 5 && !instance_exists(oHabShield) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabShield)
-		_habrandom=0
-
-	} else if _habrandom = 6 && !instance_exists(oHabFreeze) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabFreeze)
-		_habrandom=0
-	
-	} else if _habrandom = 7 && !instance_exists(oHabBombs) {
-		var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabBombs)
-		_habrandom=0
-	
-	}//put more powers
-}
+if habrandom = 1 && !instance_exists(oHabSpeed) {
+	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeed)
+	habrandom=0
+} else if habrandom = 2 && !instance_exists(oHab2x) {
+	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHab2x)
+	habrandom=0
+} else if habrandom = 3 && !instance_exists(oHabSpeedShoot) {
+	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeedShoot)
+	habrandom=0
+} else if habrandom = 4 && !instance_exists(oHabTRows) {
+	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTRows)
+	habrandom=0
+} else if habrandom = 5 && !instance_exists(oHabShield) {
+	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabShield)
+	habrandom=0
+} else if habrandom = 6 && !instance_exists(oHabFreeze) {
+	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabFreeze)
+	habrandom=0
+} else if habrandom = 7 && !instance_exists(oHabBombs) {
+	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabBombs)
+	habrandom=0
+}//put more powers
 #endregion
 #region habilities
 //hab 3
@@ -253,15 +251,27 @@ if global.hab3=6 {
 	global.hab3=0
 }
 if global.hab3=7 {
-	global.bombs=5
+	global.bombs+=5
 	global.hab3disp=7
 	global.hab3=0
 	hab3dispbomb=1
 }
 #endregion
+
 #region bug fixes
 if hab3dispbomb=1 && global.bombs=0 {
 	global.hab3disp=0
 	hab3dispbomb=0
 }
 #endregion
+
+if global.bombs>0 {
+	if shotcol=0 {
+		if boolreload=0 {
+			if global.breload<=3 {
+				alarm[4] = room_speed*0.5;
+				boolreload=1
+			}
+		}
+	}
+}
