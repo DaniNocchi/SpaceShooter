@@ -6,7 +6,9 @@ if (place_meeting(x, y, oBullet)) {
             instance_destroy(bulletInstance);
         }
 	}
-	audio_play_sound(sBMstanding,1,0)
+
+	audio_play_sound(soBMstanding,1,0)
+	if bmlive>1 {if !audio_is_playing(soBMstanding) {audio_play_sound(soBMstanding,1,0)}}
 	bmlive-=1
 }
 if (place_meeting(x, y, oBulletQuiet)) {
@@ -17,11 +19,12 @@ if (place_meeting(x, y, oBulletQuiet)) {
             instance_destroy(bulletInstanceQuiet);
         }
 	}
-	audio_play_sound(sBMstanding,1,0)
+	audio_play_sound(soBMstanding,1,0)
+	if bmlive>1 {if !audio_is_playing(soBMstanding) {audio_play_sound(soBMstanding,1,0)}}
+
 	bmlive-=1
 }
 if (place_meeting(x, y, oShield)) {
-	if !audio_is_playing(sBMstanding) {audio_play_sound(sBMstanding,1,0)}
 	bmlive=0
 }
 if (place_meeting(x, y, oArea)) {
@@ -39,7 +42,7 @@ if bmlive<=0 {
 	}
 	instance_destroy()
 	instance_create_layer(x,y,layer,oPointsbig)
-	if !audio_is_playing(sExplosion) {audio_play_sound(sExplosion,1,0)}
+	if !audio_is_playing(soDestroy) {audio_play_sound(soDestroy,1,0)}
 }
 
 if place_meeting(x,y,oDestroy) {
