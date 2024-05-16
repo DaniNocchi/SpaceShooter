@@ -69,7 +69,7 @@ if room=Menu {
 #endregion
 if room=Menu {
 draw_set_halign(fa_left)
-draw_text_scribble(5,745,"[wave][rainbow]Version 1.0.4")
+draw_text_scribble(5,745,"[wave][rainbow]Version 1.0.4 (BETA)")
 draw_set_halign(fa_right)
 draw_text_scribble(1361,745,"[wave]By DaniNocchi, Thank you for playing!!!")
 }

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sHabTFreeze",
-    "path":"sprites/sHabTFreeze/sHabTFreeze.yy",
+    "name":"sHabBombs",
+    "path":"sprites/sHabBombs/sHabBombs.yy",
   },
   "spriteMaskId":null,
   "visible":true,

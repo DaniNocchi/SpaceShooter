@@ -4,7 +4,7 @@ if place_meeting(x,y,oMouse) {
 		newname=get_string("New Name ",gmda_getPlayername())
 		gmda_setNewname(newname)
 		alarm[0]=room_speed*1
-		audio_play_sound(sInteract,1,0)
+		audio_play_sound(soInteract,1,0)
 	}
 } else {
 	sprite_index=sChangename

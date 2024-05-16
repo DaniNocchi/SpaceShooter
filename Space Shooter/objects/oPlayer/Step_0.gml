@@ -73,34 +73,37 @@ if global.bombs=0 {
 #endregion
 #region shot (three rows)
 if global.bombs=0 {
-	if (shotcol == 1) {
-		if trows = 1 {
-			var bulletInstance = instance_create_layer(x, y,"everything",oBulletQuiet);
-			bulletInstance.direction = point_direction(x, y, mouse_x+30, mouse_y+30);
-			bulletInstance.speed = 8;
-		    bulletInstance.playerBullet = true;
-			shotcol = 0;
-			alarm[0] = room_speed * shotfre;
-			
-			var bulletInstance = instance_create_layer(x, y,"everything",oBulletQuiet);
-			bulletInstance.direction = point_direction(x, y, mouse_x-30, mouse_y-30);
-			bulletInstance.speed = 8;
-		    bulletInstance.playerBullet = true;
-			shotcol = 0;
-			alarm[0] = room_speed * shotfre;
+	if trows=1 {
+		if (keymbl) {
+			if (shotcolquiet == 1) {
+				var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
+		        bulletInstancequiet.direction = point_direction(x, y, mouse_x+30, mouse_y+30);
+		        bulletInstancequiet.speed = 8;
+		        bulletInstancequiet.playerBullet = true;
+				shotcolquiet = 0 
+				alarm[5] = room_speed * shotfre;
+				
+				var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
+		        bulletInstancequiet.direction = point_direction(x, y, mouse_x-30, mouse_y-30);
+		        bulletInstancequiet.speed = 8;
+		        bulletInstancequiet.playerBullet = true;
+				shotcolquiet = 0 
+				alarm[5] = room_speed * shotfre;
+			}
 		}
 	}
-} else if global.bombs>0 {
+}
 #endregion
 #region shot (bombs)
+if global.bombs>0 {
 if (shotcol == 1) {
-    if (keymbl) {
-        instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
-        shotcol = 0;
-        alarm[0] = room_speed * 3;
-		global.breload=0
-	}
-} 
+	    if (keymbl) {
+	        instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
+	        shotcol = 0;
+	        alarm[0] = room_speed * 3;
+			global.breload=0
+		}
+	} 
 }
 #endregion
 
@@ -111,7 +114,7 @@ if hitcooldown=1 {
 		alarm[1]=room_speed*3
 		global.lives-=1
 		hitcooldown=0
-		audio_play_sound(sHit,1,0)
+		audio_play_sound(soHit,1,0)
 	}
 }
 #endregion
@@ -122,7 +125,7 @@ if hitcooldown=1 {
 		alarm[1]=room_speed*3
 		global.lives-=1
 		hitcooldown=0
-		audio_play_sound(sHit,1,0)
+		audio_play_sound(soHit,1,0)
 	} 
 }
 if place_meeting(x,y,oWall) {outwarn=1} else {outwarn=0}
@@ -169,10 +172,10 @@ if global.count>wavelimit {
 #region random hability spawner system
 
 if oldwave != global.wave {
-	var _habwillhappen = choose(1,2) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
+	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
-	habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
-	//habrandom = 7 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
+	//habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
+	habrandom = 7 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
 	_habwillhappen=0
 	} else if _habwillhappen = 2 {
 		_habwillhappen=0
@@ -243,6 +246,7 @@ if global.hab3=5 {
 	global.hab3disp=5
 	global.hab3=0
 }
+//Pause
 if global.hab3=6 {
 	global.mspd=0
 	global.mrot=0
@@ -250,6 +254,7 @@ if global.hab3=6 {
 	global.hab3disp=6
 	global.hab3=0
 }
+//Bombs
 if global.hab3=7 {
 	global.bombs+=5
 	global.hab3disp=7
@@ -275,3 +280,4 @@ if global.bombs>0 {
 		}
 	}
 }
+if keyboard_check_released(vk_control) { global.count+=26 } 

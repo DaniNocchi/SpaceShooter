@@ -17,10 +17,10 @@ if global.hab3disp=5 {
 	sprite_index=sHabShield
 }
 if global.hab3disp=6 {
-	sprite_index=sHabTFreeze
+	sprite_index=sHabFreeze
 }
 if global.hab3disp=7 {
-	sprite_index=sHabTFreeze
+	sprite_index=sHabBombs
 }
 image_xscale=1.5
 image_yscale=1.5

@@ -1,0 +1,1 @@
+shotcolquiet = 1

@@ -13,6 +13,7 @@ outwarn=0 //actives the message that appear when youre out
 gameovercol=1 //boolean to allow the alarm2 to work
 debugmode=0
 shotcol=1 //cooldown for the shoots
+shotcolquiet = 1 //same thing for the trows
 shotfre=0.3 //shoots frequency
 global.count=0 //how many meteors did you hit
 hitcooldown=1 //cooldown to not die from spam kill

@@ -2,7 +2,7 @@
 if place_meeting(x,y,oMouse) {
 	sprite_index=sMenucreditsdark
 	if mouse_check_button_released(mb_left) && global.menudeac=0 {
-		audio_play_sound(sInteract,1,0)
+		audio_play_sound(soInteract,1,0)
 		if !layer_sequence_exists("sequences",credits_sq)  { 
         credits_sq = layer_sequence_create("sequences",0,0,seCredits)
 		}
