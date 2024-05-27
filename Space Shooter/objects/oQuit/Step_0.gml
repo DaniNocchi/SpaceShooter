@@ -1,9 +1,11 @@
-if place_meeting(x,y,oMouse) {
+if place_meeting(x,y,oMouse) && global.menudeac=0 {
+	if boolmouse=0 {
+		boolmouse=1
+		audio_play_sound(soSelect,1,0)
+	}
 	sprite_index=sMenuquitdark
-	
 
-	if mouse_check_button_released(mb_left) && global.menudeac=0 { 
-		audio_play_sound(soInteract,1,0)
+	if mouse_check_button_released(mb_left)  { 
 		if room=Menu {
 			game_end()
 		} else if room=Game {
@@ -17,6 +19,7 @@ if place_meeting(x,y,oMouse) {
 	}
 } else {
 	sprite_index=sMenuquit
+	boolmouse=0
 }
 
 

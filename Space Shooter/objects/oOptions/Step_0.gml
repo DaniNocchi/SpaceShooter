@@ -7,10 +7,9 @@ if place_meeting(x, y, oMouse) {
 	}
 }
 
-if keyboard_check(vk_escape) && layer_sequence_exists("sequences", options_sq) {
+if keyboard_check_released(vk_escape) && layer_sequence_exists("sequences", options_sq) {
 	global.options=0
 	save_game()
-	instance_deactivate_layer("back")
 	global.menudeac=0
 	global.optfinish=0
 }
@@ -23,7 +22,6 @@ if global.options=1 {
 		}
 		if layer_sequence_is_finished(options_sq) { 
 			global.optfinish=1
-			instance_activate_layer("back")
 			instance_activate_layer("configs")	
 		}
 	}
@@ -33,7 +31,6 @@ if global.options=1 {
 		}
 		if layer_sequence_is_finished(options_sq) { 
 			global.optfinish=1
-			instance_activate_layer("back")
 			instance_activate_layer("configs")	
 		}
 	}
@@ -43,12 +40,13 @@ if global.options=1 {
 }
 #endregion
 #region changelog 
-if keyboard_check(vk_escape) && global.changelog=1 {
+if keyboard_check_released(vk_escape) && global.changelog=1 {
 	global.changelog=0
 	global.menudeac=0
-	instance_deactivate_layer("back")
 	global.optfinish=0
 } 
+
+
 if global.changelog=1 {
 	global.options=0
 	global.optfinish=0
@@ -61,9 +59,14 @@ if global.changelog=1 {
 }
 #endregion
 #region unnecessary sprite bugfix
-if place_meeting(x,y,oMouse) {
+if place_meeting(x,y,oMouse) && global.menudeac=0 {
+		if boolmouse=0 {
+		boolmouse=1
+		audio_play_sound(soSelect,1,0)
+	}
 	sprite_index=sMenuoptionsdark 
 } else {
+	boolmouse=0
 	sprite_index=sMenuoptions
 }
 #endregion

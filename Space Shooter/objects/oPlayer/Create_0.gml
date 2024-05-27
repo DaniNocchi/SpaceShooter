@@ -42,3 +42,4 @@ hab3dispbomb=0 //bug fix that the bomb icon would just be there even after the e
 habrandom=0
 global.bdamage=0
 boolreload=0
+shield=0

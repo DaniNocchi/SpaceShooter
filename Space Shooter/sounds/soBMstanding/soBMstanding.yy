@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.471655,
+  "duration":0.237732,
   "name":"soBMstanding",
   "parent":{
     "name":"Sounds",

@@ -29,7 +29,13 @@ if (place_meeting(x, y, oShield)) {
 }
 if (place_meeting(x, y, oArea)) {
 	if global.bdamage=1 {
-		bmlive=0
+		global.mactives-=1
+		global.count += 3;
+		if global.x2=1 {
+			global.count+=3
+		}
+		instance_destroy()
+		instance_create_layer(x,y,layer,oPointsbig)
 	}
 }
     //-----\\
@@ -42,7 +48,7 @@ if bmlive<=0 {
 	}
 	instance_destroy()
 	instance_create_layer(x,y,layer,oPointsbig)
-	if !audio_is_playing(soDestroy) {audio_play_sound(soDestroy,1,0)}
+	audio_play_sound(soDestroy,1,0)
 }
 
 if place_meeting(x,y,oDestroy) {

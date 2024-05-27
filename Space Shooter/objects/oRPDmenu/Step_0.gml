@@ -1,0 +1,1 @@
+global.update = np_update()

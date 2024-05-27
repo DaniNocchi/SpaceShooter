@@ -1,7 +1,8 @@
 function save_game() {
 	var volstruct = {
 		sou: global.soundsvolume,
-		mus: global.musicvolume
+		mus: global.musicvolume,
+		debug: global.debugmodeunlock
 	}
 	var _file = file_text_open_write("svs.dat")//svs = sound volume save
 	var _string = json_stringify(volstruct)
@@ -16,6 +17,7 @@ function load_game() {
 		var volstruct = json_parse(_json)
 		global.soundsvolume=volstruct.sou
 		global.musicvolume=volstruct.mus
+		global.debugmodeunlock=volstruct.debug
 		file_text_close(_file)
 	}
 }

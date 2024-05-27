@@ -5,6 +5,7 @@ keyright = keyboard_check(vk_right) or keyboard_check(ord("D"))
 keydown = keyboard_check(vk_down) or keyboard_check(ord("S"))
 keyup = keyboard_check(vk_up) or keyboard_check(ord("W"))
 keymbl = mouse_check_button(mb_left) or keyboard_check(vk_space)
+keymblrel = mouse_check_button_released(mb_left) or keyboard_check_released(vk_space)
 }
 #endregion
 #region walk
@@ -61,6 +62,7 @@ if rotation=1 {
 if global.bombs=0 {
 	if (shotcol == 1) {
 	    if (keymbl) {
+			
 	        var bulletInstance = instance_create_layer(x, y,"everything",oBullet);
 	        bulletInstance.direction = point_direction(x, y, mouse_x, mouse_y);
 	        bulletInstance.speed = 8;
@@ -97,7 +99,7 @@ if global.bombs=0 {
 #region shot (bombs)
 if global.bombs>0 {
 if (shotcol == 1) {
-	    if (keymbl) {
+	    if (keymblrel) {
 	        instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
 	        shotcol = 0;
 	        alarm[0] = room_speed * 3;
@@ -158,11 +160,20 @@ if global.lives<=0 {
 #endregion
 
 #region debug mode
-if keyboard_check_released(vk_alt) {if debugmode=0 {debugmode=1} else {debugmode=0}}
+if keyboard_check_released(vk_alt) {
+	if global.debugmodeunlock = 1 {
+		if debugmode=0 {
+			debugmode=1
+		} else {
+			debugmode=0
+		}
+	}
+}
+
 #endregion
 
 #region waves
-if global.count>wavelimit {
+if global.count>=wavelimit {
 	wavelimit+=25
 	global.mlimit+=5
 	global.wave+=1
@@ -170,12 +181,13 @@ if global.count>wavelimit {
 #endregion
 
 #region random hability spawner system
-
 if oldwave != global.wave {
-	var _habwillhappen = choose(1) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
+	var _habwillhappen = choose(1,2) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
-	//habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
-	habrandom = 7 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze
+		
+	habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs
+	//habrandom = 5 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs
+	
 	_habwillhappen=0
 	} else if _habwillhappen = 2 {
 		_habwillhappen=0
@@ -241,6 +253,7 @@ if global.hab3=4 {
 }
 //Shield
 if global.hab3=5 {
+	shield=1
 	var shieldInstance = instance_create_layer(x, y,"everything",oShield);
 	alarm[3]=room_speed*15
 	global.hab3disp=5
@@ -268,7 +281,6 @@ if hab3dispbomb=1 && global.bombs=0 {
 	global.hab3disp=0
 	hab3dispbomb=0
 }
-#endregion
 
 if global.bombs>0 {
 	if shotcol=0 {
@@ -280,4 +292,13 @@ if global.bombs>0 {
 		}
 	}
 }
-if keyboard_check_released(vk_control) { global.count+=26 } 
+#endregion
+
+
+if place_meeting(x,y,oMouse) {
+	if mouse_check_button_released(mb_left) {
+		if global.count=69 { 
+			if !audio_is_playing(soEasterEgg) {audio_play_sound(soEasterEgg,2,0)}
+		}
+	}
+}

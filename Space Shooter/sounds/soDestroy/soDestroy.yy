@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.457143,
+  "duration":0.558367,
   "name":"soDestroy",
   "parent":{
     "name":"Sounds",

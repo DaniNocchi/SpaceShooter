@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":30.024,
+  "duration":84.0,
   "name":"soMusic",
   "parent":{
     "name":"Sounds",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"soMusic.mp3",
+  "soundFile":"soMusic.ogg",
   "type":0,
-  "volume":0.32,
+  "volume":1.0,
 }

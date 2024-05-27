@@ -1,27 +1,24 @@
-1.0.4
-mais power ups:
------escudo
------time freeze
-- bombas
-
------botar uma coroa no top 1 
------mudar os creditos
------mudar o changelog
-mudar musicas
-animação da logo do "DaniNocchi Studios"
-fazer um banner pro jogo
-lançar no itch.io
+1.1.1  
+sistema de economia ja funcionando
+animações mais bonitas
+sistema de linguas (ingles, portugues, espanhol, mais em breve)
 
 
-1.1  
-Trocar todos os sons pra originais do jogo
-botar um tutorial
-sistema de economia
+Animações melhores:
+https://www.youtube.com/watch?v=JGnZJh63BtM       - transição bonitona
+https://youtu.be/1ITZOrI2qkA?si=AMtHZ_5kLn-ldPRN  - melhor sistema de configs
+https://www.youtube.com/watch?v=uiqwxN6re14       - Squash and Strech4
+
+https://youtu.be/DYkJ91eg67Y?si=7c-IkEguLNhk4KWX  - n eh pro space shooter, soh pra estudar
+
+
+
+
 sistema de loja
 skins diferentes
 inventario
 botar sistema de missões
-sistema de linguas (ingles, portugues, espanhol, mais em breve)
+
 lançar na steam
 
 

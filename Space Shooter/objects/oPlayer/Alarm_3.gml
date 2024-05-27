@@ -8,7 +8,10 @@ trows=0
 
 global.x2=0
 
-global.destroyshield=1
+if shield = 1 {
+	global.destroyshield=1
+	shield=0
+}
 
 global.mspd=2
 global.mrot=1

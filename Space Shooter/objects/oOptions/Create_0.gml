@@ -6,3 +6,4 @@ layer_sequence_destroy(changelog_sq)
 global.changelog=0
 global.menudeac=0
 global.optfinish=0
+boolmouse=0

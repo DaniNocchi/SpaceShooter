@@ -11,7 +11,7 @@ if place_meeting(x,y,oMouse) {
 } else {
 	sprite_index=sMenucredits
 }
-if keyboard_check(vk_escape) && layer_sequence_exists("sequences",credits_sq) {
+if keyboard_check_released(vk_escape) && layer_sequence_exists("sequences",credits_sq) {
 	layer_sequence_destroy(credits_sq)	
 	global.menudeac=0
 } 
