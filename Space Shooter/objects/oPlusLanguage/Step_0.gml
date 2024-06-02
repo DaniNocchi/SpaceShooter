@@ -8,10 +8,10 @@ if place_meeting(x,y,oMouse) {
 	}
 	sprite_index=sPlusdark
 	if mouse_check_button_released(mb_left) { 
-		global.musicvolume+=10
-				escx = 0.8 
+		if global.translation<3 global.translation+= 1 else global.translation=1
+		escx = 0.8 
 		escy = 0.8
-		audio_play_sound(soInteractMusic,1,0)
+		audio_play_sound(soInteract,1,0)
 	}
 } else {
 	soundstop=1

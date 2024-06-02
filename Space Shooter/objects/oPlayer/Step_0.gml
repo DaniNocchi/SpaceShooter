@@ -186,7 +186,7 @@ if oldwave != global.wave {
 	if _habwillhappen = 1 {
 		
 	habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs
-	//habrandom = 5 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs
+	//habrandom = 7 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs
 	
 	_habwillhappen=0
 	} else if _habwillhappen = 2 {
