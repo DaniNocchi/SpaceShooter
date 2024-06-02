@@ -1,4 +1,3 @@
-inblack_seq = layer_sequence_create("sequences",0,0,seinblack)
-layer_sequence_destroy(inblack_seq)
-inblack=0
 boolmouse=0
+escx=1
+escy=1

@@ -3,6 +3,7 @@ if layer_sequence_is_finished(bombfall_seq) = true {
 	layer_sequence_destroy(bombfall_seq)
 	explosion_seq = layer_sequence_create("sequences",x,y,seExplosion)
 	audio_play_sound(soExplosion, 1, 0)
+	start_screen_shake(1.5, 5, 0);
 }
 
 if layer_sequence_is_finished(explosion_seq) = true {

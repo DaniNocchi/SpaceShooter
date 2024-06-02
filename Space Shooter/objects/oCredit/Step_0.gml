@@ -7,18 +7,37 @@ if place_meeting(x,y,oMouse) && global.menudeac=0 {
 	}
 	
 	
-	sprite_index=sMenucreditsdark
+	sprite_index=sButtonDark
 	
 	
 	if mouse_check_button_released(mb_left) && global.menudeac=0 {
 		audio_play_sound(soInteract,1,0)
+		escx = 0.8 
+		escy = 0.8
+		
+		switch global.translation {
+		case 1:
 		if !layer_sequence_exists("sequences",credits_sq)  { 
-        credits_sq = layer_sequence_create("sequences",0,0,seCredits)
+			credits_sq = layer_sequence_create("sequences",0,0,seCredits)
 		}
+		break;
+		case 2:
+		if !layer_sequence_exists("sequences",credits_sq)  { 
+			credits_sq = layer_sequence_create("sequences",0,0,seCreditsPT)
+		}
+		break;
+		case 3:
+		if !layer_sequence_exists("sequences",credits_sq)  { 
+			credits_sq = layer_sequence_create("sequences",0,0,seCreditsES)
+		}
+		break;
+		}
+		
+		
 		global.menudeac=1
 	}
 } else {
-	sprite_index=sMenucredits
+	sprite_index=sButton
 	boolmouse=0
 }
 

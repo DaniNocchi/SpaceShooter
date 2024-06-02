@@ -4,6 +4,8 @@ if place_meeting(x, y, oMouse) {
 		audio_play_sound(soInteract,1,0)
 		global.options=1
 		global.menudeac=1
+				escx = 0.8 
+		escy = 0.8
 	}
 }
 
@@ -16,24 +18,38 @@ if keyboard_check_released(vk_escape) && layer_sequence_exists("sequences", opti
 #endregion
 #region what happens
 if global.options=1 {
-	if room=Menu {
+
+
+	switch global.translation {
+		case 1:
 		if !layer_sequence_exists("sequences",options_sq) { 
 			options_sq = layer_sequence_create("sequences",0,0,seOptions) 
 		}
-		if layer_sequence_is_finished(options_sq) { 
-			global.optfinish=1
-			instance_activate_layer("configs")	
-		}
-	}
-	if room=Game {
+		break
+		case 2:
 		if !layer_sequence_exists("sequences",options_sq) { 
-			options_sq = layer_sequence_create("sequences",0,0,seOptions2) 
+			options_sq = layer_sequence_create("sequences",0,0,seOptionsPT) 
 		}
+		break
+		case 3:
+		if !layer_sequence_exists("sequences",options_sq) { 
+			options_sq = layer_sequence_create("sequences",0,0,seOptionsES) 
+		}
+		break
+	}
+		
+		
+		
 		if layer_sequence_is_finished(options_sq) { 
 			global.optfinish=1
 			instance_activate_layer("configs")	
 		}
-	}
+		
+		
+		
+		
+		
+		
 } else {
 	layer_sequence_destroy(options_sq);
 	instance_deactivate_layer("configs")
@@ -64,9 +80,9 @@ if place_meeting(x,y,oMouse) && global.menudeac=0 {
 		boolmouse=1
 		audio_play_sound(soSelect,1,0)
 	}
-	sprite_index=sMenuoptionsdark 
+	sprite_index=sButtonDark
 } else {
 	boolmouse=0
-	sprite_index=sMenuoptions
+	sprite_index=sButton
 }
 #endregion

@@ -1,1 +1,0 @@
-shake_strenght=0

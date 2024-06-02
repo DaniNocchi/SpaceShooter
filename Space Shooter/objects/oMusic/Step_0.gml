@@ -1,2 +1,2 @@
-if room=musicbugfix { room=Menu }
-if !audio_is_playing(soMusic) {audio_play_sound(soMusic,1,1)}
+if room=musicbugfix beauty_transition(Menu,c_black,1)
+if !audio_is_playing(soMusic) audio_play_sound(soMusic,1,1)

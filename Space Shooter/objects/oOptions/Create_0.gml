@@ -7,3 +7,5 @@ global.changelog=0
 global.menudeac=0
 global.optfinish=0
 boolmouse=0
+escx=1
+escy=1

@@ -4,12 +4,14 @@ if place_meeting(x,y,oMouse) {
 		boolmouse=1
 		audio_play_sound(soSelect,1,0)
 	}
-    sprite_index=sResumedark
+    sprite_index=sButtonDark
     if mouse_check_button_released(mb_left) { 
+				escx = 0.8 
+		escy = 0.8
 		global.pause=0
     }
 } else {
-    sprite_index=sResumelight
+    sprite_index=sButton
 	boolmouse=0
 }
 }

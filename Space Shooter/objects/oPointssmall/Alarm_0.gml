@@ -1,1 +1,1 @@
-instance_destroy()
+boolean=1

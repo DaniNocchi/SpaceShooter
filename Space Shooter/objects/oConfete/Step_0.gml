@@ -1,3 +1,3 @@
 y+=1
-xspeed=choose(-1,0,1)
-x+=xspeed
+x+=irandom_range(-1,1)
+if place_meeting(x,y,oDestroy) { instance_destroy() } 

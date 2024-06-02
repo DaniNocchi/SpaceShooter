@@ -2,7 +2,7 @@ draw_set_halign(fa_left)
 draw_set_font(fDefault)
 scribble_anim_wave(1, 75, 0.2)
 pos=gmda_getPlayerpos(1)
-global.bestscore1=gmda_getBestscore(1)
+global.bestscore2=gmda_getBestscore(1)
 playername=gmda_getPlayername()
 playerid=gmda_getPlayerid()
 status=gmda_status()
@@ -42,7 +42,7 @@ if room=Menu {
 		draw_text(15,280+ 25*6,"-------------------------------")
 		draw_text(15,280+ 25*7,"#"+string(pos)+" "+string(playername))
 		draw_set_halign(fa_right)	
-		draw_text(270,280+ 25*7,string(global.bestscore1))
+		draw_text(270,280+ 25*7,string(global.bestscore2))
 
 	
 		#region if youre a looser----------------------------------------

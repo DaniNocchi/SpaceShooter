@@ -10,4 +10,3 @@ if _sprite = 1 {
 } else if _sprite = 4 {
 	sprite_index=sConfete4
 }
-if place_meeting(x,y,oDestroy) { instance_destroy() } 

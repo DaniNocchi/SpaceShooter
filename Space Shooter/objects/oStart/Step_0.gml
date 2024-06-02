@@ -3,23 +3,14 @@ if place_meeting(x, y, oMouse) && global.menudeac=0 {
 		boolmouse=1
 		audio_play_sound(soSelect,1,0)
 	}
-	sprite_index=sMenustartdark
+	sprite_index=sButtonDark
 	if mouse_check_button_released(mb_left) {
+		escx = 0.8 
+		escy = 0.8
 		audio_play_sound(soInteract,1,0)
-		if !layer_sequence_exists("sequences",inblack_seq) {
-			inblack_seq = layer_sequence_create("sequences",0,0,seinblack)
-			inblack=1
-			global.menudeac=1
-		}
+		beauty_transition(Game, #ffffff)
 	}
 } else {
-	sprite_index=sMenustart
+	sprite_index=sButton
 	boolmouse=0
-}
-if inblack=1 {
-	if layer_sequence_is_finished(inblack_seq) {
-		layer_sequence_destroy(inblack_seq)
-		room=Game
-		inblack=0
-	}
 }

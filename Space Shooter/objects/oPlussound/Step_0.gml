@@ -8,6 +8,8 @@ if place_meeting(x,y,oMouse) {
 	}
 	sprite_index=sPlusdark
 	if mouse_check_button_released(mb_left) { 
+				escx = 0.8 
+		escy = 0.8
 		global.soundsvolume+=10
 		audio_play_sound(soInteract,1,0)
 	}

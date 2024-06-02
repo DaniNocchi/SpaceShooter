@@ -1,5 +1,5 @@
-if (place_meeting(x, y, oBullet)) {
-    var bulletInstance = instance_place(x, y, oBullet);
+if (place_meeting(x, y,oBullet)) {
+    var bulletInstance = instance_place(x, y, oBullet);             
     if (bulletInstance != noone) {
         if (bulletInstance.playerBullet) {
             instance_destroy(bulletInstance);

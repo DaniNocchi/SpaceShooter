@@ -38,7 +38,19 @@ if (place_meeting(x, y, oArea)) {
 		instance_create_layer(x,y,layer,oPointsbig)
 	}
 }
-    //-----\\
+
+
+
+
+
+
+
+
+
+
+
+
+	//-----\\
 speed=global.mspd
 if bmlive<=0 {
 	global.mactives-=1

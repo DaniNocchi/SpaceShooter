@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":6.2955,
+  "duration":1.512,
   "name":"soEasterEgg",
   "parent":{
     "name":"Sounds",

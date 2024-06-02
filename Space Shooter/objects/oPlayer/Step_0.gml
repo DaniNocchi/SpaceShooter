@@ -161,7 +161,7 @@ if global.lives<=0 {
 
 #region debug mode
 if keyboard_check_released(vk_alt) {
-	if global.debugmodeunlock = 1 {
+	if global.debugunlock = true {
 		if debugmode=0 {
 			debugmode=1
 		} else {
@@ -294,11 +294,14 @@ if global.bombs>0 {
 }
 #endregion
 
-
-if place_meeting(x,y,oMouse) {
+	if place_meeting(x,y,oMouse) {
 	if mouse_check_button_released(mb_left) {
 		if global.count=69 { 
 			if !audio_is_playing(soEasterEgg) {audio_play_sound(soEasterEgg,2,0)}
 		}
 	}
 }
+
+if keyboard_check_released(vk_control) {
+	
+}	
