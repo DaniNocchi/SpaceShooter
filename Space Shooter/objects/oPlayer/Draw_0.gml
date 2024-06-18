@@ -32,14 +32,56 @@ draw_text(15,405,string(global.destroyshield)+" global destroy shield")
 
 draw_set_halign(fa_middle)
 draw_set_font(fGameover2)
-draw_text(x,y-70,string(global.count)+" Points")
+switch global.translation {
+	case 1:
+		draw_text(x,y-70,string(global.count)+" Points")
+	break
+	case 2:
+		draw_text(x,y-70,string(global.count)+" Pontos")
+	break
+	case 3:
+		draw_text(x,y-70,string(global.count)+" Puntos")
+	break
+}
+
 if global.bombs>0 {
-	draw_text(x,y-85,string(global.bombs)+" bombs left")
+	switch global.translation {
+		case 1:
+			draw_text(x,y-85,string(global.bombs)+" bombs left")
+		break
+		case 2:
+			draw_text(x,y-85,string(global.bombs)+" Bombas restantes")
+		break
+		case 3:
+			draw_text(x,y-85,string(global.bombs)+" Bombas restantes")
+		break
+	}
 }
 draw_set_font(fGameover)
 if outwarn = 1 {
-draw_text_scribble(670,375,"[c_red][SHAKE]YOU ARE OUTSIDE THE GAME, RETURN NOW") //i got scared reading this 
+
+switch global.translation {
+	case 1:
+		draw_text_scribble(670,375,"[c_red][SHAKE]YOU ARE OUTSIDE THE GAME, RETURN NOW")
+	break
+	case 2:
+		draw_text_scribble(670,375,"[c_red][SHAKE]VOCÊ ESTÁ FORA DO JOGO, RETORNE AGORA")
+	break
+	case 3:
+		draw_text_scribble(670,375,"[c_red][SHAKE]ESTÁS FUERA DEL JUEGO, VUELVE AHORA")
+	break
 }
-draw_text(670,12,"Wave "+string(global.wave))
+}
+switch global.translation {
+	case 1:
+		draw_text(670,12,"Wave "+string(global.wave))
+	break
+	case 2:
+		draw_text(670,12,"Onda "+string(global.wave))
+	break
+	case 3:
+		draw_text(670,12,"Oleada "+string(global.wave))
+	break
+}
 
 draw_self()

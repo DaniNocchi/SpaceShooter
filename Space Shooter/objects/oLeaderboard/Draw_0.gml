@@ -14,7 +14,17 @@ if status=0 {
 	if room=Menu {
 	instance_deactivate_layer("Instance_1")
 	draw_set_halign(fa_middle)
-	draw_text_scribble(140,370,"[SHAKE]CONNECTING...")
+	switch global.translation {
+		case 1:
+			draw_text_scribble(140,370,"[SHAKE]CONNECTING...")
+		break
+		case 2:
+			draw_text_scribble(140,370,"[SHAKE]CONECTANDO...")
+		break
+		case 3:
+			draw_text_scribble(140,370,"[SHAKE]CONECTANDO...")
+		break
+	}
 	}
 } else {
 #endregion
@@ -30,12 +40,42 @@ if room=Menu {
 	#region DRAW THE LEADERBOAD----------------------------------------- 
 		draw_set_font(fBig)
 		draw_set_halign(fa_middle)
-		draw_text(140,225,"SCOREBOARD")	
+		switch global.translation {
+			case 1:
+				draw_text(140,225,"SCOREBOARD")
+			break
+			case 2:
+				draw_text(140,225,"PLACAR")
+			break
+			case 3:
+				draw_text(140,225,"MARCADOR")
+			break
+		}
 		draw_set_font(fMedium)
 		draw_set_halign(fa_left)
-		draw_text(15,275,"NAME")
+		switch global.translation {
+			case 1:
+				draw_text(15,275,"NAME")
+			break
+			case 2:
+				draw_text(15,275,"NOME")
+			break
+			case 3:
+				draw_text(15,275,"NOMBRE")
+			break
+		}
 		draw_set_halign(fa_right)
-		draw_text(270,275,"SCORE")
+				switch global.translation {
+			case 1:
+				draw_text(270,275,"SCORE")
+			break
+			case 2:
+				draw_text(270,275,"PONTOS")
+			break
+			case 3:
+				draw_text(270,275,"PUNTOS")
+			break
+		}
 	  // --------------------------------------------------
 	  	draw_set_font(fSmall)
 		draw_set_halign(fa_left)
@@ -62,7 +102,7 @@ if room=Menu {
 			draw_text_scribble(270,280+ 25*i,"[rainbow]"+string(xscore))
 		}
 	} 
-} else {} 
+} else {}
 }
 		#endregion
 	#endregion
@@ -71,5 +111,15 @@ if room=Menu {
 draw_set_halign(fa_left)
 draw_text_scribble(5,742,"[wave][rainbow]Version 1.1")
 draw_set_halign(fa_right)
-draw_text_scribble(1361,742,"[wave]By DaniNocchi, Thank you for playing!!!")
+switch global.translation {
+	case 1:
+		draw_text_scribble(1361,742,"[wave]By DaniNocchi, Thank you for playing!!!")
+	break
+	case 2:
+		draw_text_scribble(1361,742,"[wave]Por DaniNocchi, obrigado por jogar!!!")
+	break
+	case 3:
+		draw_text_scribble(1361,742,"[wave]Por DaniNocchi, ¡¡¡gracias por jugar!!!")
+	break
+		}
 }

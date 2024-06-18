@@ -16,5 +16,13 @@ switch global.translation {
 	draw_text_transformed(x,y,"OPCIONES",escx,escy,0)
 	break
 }
+
+
+
+
+
+
+
+
 draw_set_halign(fa_right)
 draw_set_valign(fa_top)

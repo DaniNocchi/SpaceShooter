@@ -11,7 +11,7 @@ if place_meeting(x,y,oMouse) {
 		if global.translation>1 global.translation-=1 else global.translation=3
 		escx = 0.8 
 		escy = 0.8
-		audio_play_sound(soInteractMusic,1,0)
+		audio_play_sound(soInteract,1,0)
 	}
 } else {
 	soundstop=1

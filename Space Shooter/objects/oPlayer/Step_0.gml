@@ -102,7 +102,9 @@ if (shotcol == 1) {
 	    if (keymblrel) {
 	        instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
 	        shotcol = 0;
+			if global.bombs>1 {
 	        alarm[0] = room_speed * 3;
+			} else { alarm[0] = room_speed * shotfre; } 
 			global.breload=0
 		}
 	} 
@@ -198,25 +200,25 @@ if oldwave != global.wave {
 #endregion
 #region habilities lil' square thingy that spawn yk
 if habrandom = 1 && !instance_exists(oHabSpeed) {
-	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeed)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(768),"everything",oHabSpeed)
 	habrandom=0
 } else if habrandom = 2 && !instance_exists(oHab2x) {
-	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHab2x)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(768),"everything",oHab2x)
 	habrandom=0
 } else if habrandom = 3 && !instance_exists(oHabSpeedShoot) {
-	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabSpeedShoot)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(768),"everything",oHabSpeedShoot)
 	habrandom=0
 } else if habrandom = 4 && !instance_exists(oHabTRows) {
-	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabTRows)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(768),"everything",oHabTRows)
 	habrandom=0
 } else if habrandom = 5 && !instance_exists(oHabShield) {
-	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabShield)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(768),"everything",oHabShield)
 	habrandom=0
 } else if habrandom = 6 && !instance_exists(oHabFreeze) {
-	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabFreeze)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(768),"everything",oHabFreeze)
 	habrandom=0
 } else if habrandom = 7 && !instance_exists(oHabBombs) {
-	var _hab3 = instance_create_layer(irandom(1366),irandom(768),"everything",oHabBombs)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(768),"everything",oHabBombs)
 	habrandom=0
 }//put more powers
 #endregion
@@ -293,14 +295,6 @@ if global.bombs>0 {
 	}
 }
 #endregion
-
-	if place_meeting(x,y,oMouse) {
-	if mouse_check_button_released(mb_left) {
-		if global.count=69 { 
-			if !audio_is_playing(soEasterEgg) {audio_play_sound(soEasterEgg,2,0)}
-		}
-	}
-}
 
 if keyboard_check_released(vk_control) {
 	

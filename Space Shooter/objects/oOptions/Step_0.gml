@@ -18,28 +18,9 @@ if keyboard_check_released(vk_escape) && layer_sequence_exists("sequences", opti
 #endregion
 #region what happens
 if global.options=1 {
-
-
-	switch global.translation {
-		case 1:
-		if !layer_sequence_exists("sequences",options_sq) { 
-			options_sq = layer_sequence_create("sequences",0,0,seOptions) 
-		}
-		break
-		case 2:
-		if !layer_sequence_exists("sequences",options_sq) { 
-			options_sq = layer_sequence_create("sequences",0,0,seOptionsPT) 
-		}
-		break
-		case 3:
-		if !layer_sequence_exists("sequences",options_sq) { 
-			options_sq = layer_sequence_create("sequences",0,0,seOptionsES) 
-		}
-		break
-	}
-		
-		
-		
+	if !layer_sequence_exists("sequences",options_sq) { 
+	options_sq = layer_sequence_create("sequences",0,0,seOptions) 
+}
 		if layer_sequence_is_finished(options_sq) { 
 			global.optfinish=1
 			instance_activate_layer("configs")	
@@ -67,8 +48,22 @@ if global.changelog=1 {
 	global.options=0
 	global.optfinish=0
 	global.menudeac=1
-	if !layer_sequence_exists("sequences",changelog_sq) {
-		changelog_sq = layer_sequence_create("sequences",0,0,seChangelog)
+	switch global.translation {
+		case 1:
+			if !layer_sequence_exists("sequences",changelog_sq) {
+				changelog_sq = layer_sequence_create("sequences",0,0,seChangelog)
+			}
+		break;
+		case 2:
+			if !layer_sequence_exists("sequences",changelog_sq) {
+				changelog_sq = layer_sequence_create("sequences",0,0,seChangelogPT)
+			}
+		break;
+		case 3:
+			if !layer_sequence_exists("sequences",changelog_sq) {
+				changelog_sq = layer_sequence_create("sequences",0,0,seChangelogES)
+			}
+		break;
 	}
 } else {
 	layer_sequence_destroy(changelog_sq)
