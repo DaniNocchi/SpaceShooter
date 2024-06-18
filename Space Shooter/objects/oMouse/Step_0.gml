@@ -1,4 +1,4 @@
-x=mouse_x
+   x=mouse_x
 y=mouse_y
 draw_self()
 
@@ -36,15 +36,18 @@ if global.bestscore2>=500 {
 	if !steam_get_achievement("record500") {
 		steam_set_achievement("record500")
 	}
-} else if global.bestscore2>=1000 {
+}
+if global.bestscore2>=1000 {
 	if !steam_get_achievement("record1000") {
 		steam_set_achievement("record1000")
 	}
-} else if global.bestscore2>=2500 { 
+}
+if global.bestscore2>=2500 { 
 	if !steam_get_achievement("record2500") {
 		steam_set_achievement("record2500")
 	}
-} else if global.bestscore2>=5000 {
+}
+if global.bestscore2>=5000 {
 	if !steam_get_achievement("record5000") {
 		steam_set_achievement("record5000")
 	}

@@ -109,7 +109,7 @@ if room=Menu {
 #endregion
 if room=Menu {
 draw_set_halign(fa_left)
-draw_text_scribble(5,742,"[wave][rainbow]Version 1.1")
+draw_text_scribble(5,742,"[wave][rainbow]Version 1.2")
 draw_set_halign(fa_right)
 switch global.translation {
 	case 1:
