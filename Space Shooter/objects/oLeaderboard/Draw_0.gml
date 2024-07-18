@@ -11,7 +11,7 @@ globalscores=gmda_getTabledata(gmda_globaltable,1)
 #region if its not conected yet
 draw_set_font(fSmall)
 if status=0 {
-	if room=Menu {
+	if room=rMenu {
 	instance_deactivate_layer("Instance_1")
 	draw_set_halign(fa_middle)
 	switch global.translation {
@@ -29,7 +29,7 @@ if status=0 {
 } else {
 #endregion
 #region else if its connected ------------------------------------
-if room=Menu {
+if room=rMenu {
 	instance_activate_layer("Instance_1")
 	var tablesize=ds_map_size(globalscores)
 	var rowinfo;
@@ -107,7 +107,7 @@ if room=Menu {
 		#endregion
 	#endregion
 #endregion
-if room=Menu {
+if room=rMenu {
 draw_set_halign(fa_left)
 draw_text_scribble(5,742,"[wave][rainbow]Version 1.2")
 draw_set_halign(fa_right)

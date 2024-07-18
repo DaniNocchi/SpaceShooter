@@ -3,8 +3,8 @@ function save_game() {
         sou: global.soundsvolume,
         mus: global.musicvolume,
 		deb: global.debugunlock,
-		tran: global.translation
-		
+		tran: global.translation,
+		dth: global.deaths
     }
     var _file = file_text_open_write("svs.dat")//svs = sound volume save
     var _string = json_stringify(volstruct)
@@ -22,6 +22,12 @@ function load_game() {
         global.musicvolume=volstruct.mus??50
 		global.debugunlock=volstruct[$ "deb"] ?? 0
 		global.translation=volstruct[$ "tran"] ?? 1
+		global.deaths=volstruct[$ "dth"] ?? 0
         file_text_close(_file)
     }
+}
+
+function first_time() {
+	global.bestscore2=0
+	global.deaths=0
 }

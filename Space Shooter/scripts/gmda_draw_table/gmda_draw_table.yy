@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"gmda_draw_table",
   "isCompatibility":false,
   "isDnD":false,

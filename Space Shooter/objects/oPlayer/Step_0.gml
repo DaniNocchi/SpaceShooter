@@ -137,26 +137,14 @@ if place_meeting(x,y,oWall) {outwarn=1} else {outwarn=0}
 #region gameover
 if global.lives<=0 {
 	gmda_submit(1,global.count)
-	
 	instance_deactivate_all(true)
 	rotation=0
 	hspd=0
 	vspd=0
 	move=0
 	if gameovercol=1 { 
-	alarm[2]=room_speed*1
-	gameovercol=0
-	}
-	if layer_sequence_is_finished(outblack_seq) {
-		room=Menu
-		rotation=1
-		move=1
-		global.lives=3
-		x=704
-		y=352
-		dead=0
-		gameovercol=1
-		layer_sequence_destroy(outblack_seq)	
+		alarm[2]=room_speed*1
+		gameovercol=0
 	}
 }
 #endregion

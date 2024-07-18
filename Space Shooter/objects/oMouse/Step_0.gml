@@ -1,7 +1,7 @@
    x=mouse_x
 y=mouse_y
 draw_self()
-
+if global.bestscore2="" global.bestscore2=0
 audio_group_set_gain(sounds,global.soundsvolume/100,30)
 audio_group_set_gain(music,global.musicvolume/100,30)
 if global.soundsvolume>100 {global.soundsvolume=100} else if global.soundsvolume<0{global.soundsvolume=0}
@@ -18,16 +18,8 @@ if place_meeting(x,y,oPlayer) {
 		}    
 	}
 }
-if keyboard_check_released(vk_control) {
-	if !steam_get_achievement("EasterEgg") {
-		steam_set_achievement("EasterEgg")
-	}
-}
-if keyboard_check_released(vk_shift) {
-	steam_clear_achievement("EasterEgg")
-}
 
-
+ 
 
 
 
@@ -52,3 +44,32 @@ if global.bestscore2>=5000 {
 		steam_set_achievement("record5000")
 	}
 }
+
+
+
+
+
+
+if global.deaths>=5 {
+	if !steam_get_achievement("death5") {
+		steam_set_achievement("death5")
+	}
+}
+if global.deaths>=10 {
+	if !steam_get_achievement("death10") {
+		steam_set_achievement("death10")
+	}
+}
+if global.deaths>=25 { 
+	if !steam_get_achievement("death25") {
+		steam_set_achievement("death25")
+	}
+}
+if global.deaths>=50 {
+	if !steam_get_achievement("death50") {
+		steam_set_achievement("death50")
+	}
+}
+
+steam_set_stat_float("death", global.deaths)
+steam_set_stat_float("maxp", global.bestscore2)

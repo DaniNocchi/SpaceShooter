@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"gmda_draw_achievements",
   "isCompatibility":false,
   "isDnD":false,

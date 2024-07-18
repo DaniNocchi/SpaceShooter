@@ -1,13 +1,13 @@
 if global.pause=0 {
 	instance_activate_all()
-	if room=Game { global.menudeac=1 }
+	if room=rGame { global.menudeac=1 }
 	layer_sequence_destroy(pause_seq)
 	layer_set_visible("pauseobj",false)
 	if (keyboard_check_released(vk_escape)) {
         global.pause = 1;
 	}
 
-} else if global.pause=1 && room=Game {
+} else if global.pause=1 && room=rGame {
 	if global.options=0 && global.changelog=0{
 		global.menudeac=0
 	} 

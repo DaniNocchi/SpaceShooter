@@ -1,4 +1,11 @@
 dead=1
-	if !layer_sequence_exists("pause",outblack_seq) {
-		outblack_seq = layer_sequence_create("pause",0,0,seoutblack)
-	}
+beauty_transition(rMenu, c_white)
+rotation=1
+move=1
+global.lives=3
+x=704
+y=352
+dead=0
+gameovercol=1
+global.deaths+=1
+save_game()

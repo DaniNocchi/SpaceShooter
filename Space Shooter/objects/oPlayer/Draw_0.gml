@@ -28,6 +28,7 @@ draw_text(15,360,string(habrandom)+" hab random")
 draw_text(15,375,string(global.bombs)+" bombs")
 draw_text(15,390,string(global.bdamage)+" bomb damage")
 draw_text(15,405,string(global.destroyshield)+" global destroy shield")
+draw_text(15,435,string(global.deaths)+" deaths")
 }
 
 draw_set_halign(fa_middle)

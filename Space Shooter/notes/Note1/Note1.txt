@@ -1,16 +1,9 @@
 	1.1.1  
 sistema de economia ja funcionando
 animações mais bonitas
-sistema de linguas (ingles, portugues, espanhol, mais em breve)
-
-
-
 sistema de loja
 skins diferentes
-inventario
 botar sistema de missões
-
-lançar na steam
 
 
 

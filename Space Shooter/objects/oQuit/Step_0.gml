@@ -5,13 +5,13 @@ if place_meeting(x,y,oMouse) && global.menudeac=0 {
 	}
 	sprite_index=sButtonDark
 	if mouse_check_button_released(mb_left)  { 
-		if room=Menu {
+		if room=rMenu {
 			game_end()
-		} else if room=Game {
+		} else if room=rGame {
 			escx = 0.8 
 			escy = 0.8
 			audio_play_sound(soInteract,1,0)
-			beauty_transition(Menu, #ffffff)
+			beauty_transition(rMenu, #ffffff)
 			gmda_submit(1,global.count)
 			global.menudeac=1
 		}

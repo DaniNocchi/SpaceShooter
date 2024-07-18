@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"gmda_textbox",
   "isCompatibility":false,
   "isDnD":false,
