@@ -79,14 +79,14 @@ if global.bombs=0 {
 		if (keymbl) {
 			if (shotcolquiet == 1) {
 				var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
-		        bulletInstancequiet.direction = point_direction(x, y, mouse_x+30, mouse_y+30);
+		        bulletInstancequiet.direction = point_direction(x, y, mouse_x+45, mouse_y+45);
 		        bulletInstancequiet.speed = 8;
 		        bulletInstancequiet.playerBullet = true;
 				shotcolquiet = 0 
 				alarm[5] = room_speed * shotfre;
 				
 				var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
-		        bulletInstancequiet.direction = point_direction(x, y, mouse_x-30, mouse_y-30);
+		        bulletInstancequiet.direction = point_direction(x, y, mouse_x-45, mouse_y-45);
 		        bulletInstancequiet.speed = 8;
 		        bulletInstancequiet.playerBullet = true;
 				shotcolquiet = 0 

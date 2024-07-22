@@ -10,7 +10,7 @@ if global.optfinish=1 {
 			draw_text_transformed(x,y-52,"Tela Cheia",0.8,0.8,0)
 		break
 		case 3:
-			draw_text_transformed(room_width/2,y-28,"Musica",0.8,0.8,0)
+			draw_text_transformed(room_width/2,y-28,"Pantalla Completa",0.8,0.8,0)
 		break
 	}
 }

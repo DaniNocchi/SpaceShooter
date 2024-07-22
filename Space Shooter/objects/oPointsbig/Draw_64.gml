@@ -1,5 +1,5 @@
 draw_set_alpha(alpha)
-draw_set_font(fMenuthings_1)
+draw_set_font(fPointsText)
 if global.x2=0 {
 	draw_text_scribble(x,y,"[rainbow][wave]+3")
 }

@@ -32,7 +32,7 @@ draw_text(15,435,string(global.deaths)+" deaths")
 }
 
 draw_set_halign(fa_middle)
-draw_set_font(fGameover2)
+draw_set_font(fTextInGame)
 switch global.translation {
 	case 1:
 		draw_text(x,y-70,string(global.count)+" Points")
@@ -58,9 +58,8 @@ if global.bombs>0 {
 		break
 	}
 }
-draw_set_font(fGameover)
+draw_set_font(fTextInGameButBigger)
 if outwarn = 1 {
-
 switch global.translation {
 	case 1:
 		draw_text_scribble(670,375,"[c_red][SHAKE]YOU ARE OUTSIDE THE GAME, RETURN NOW")

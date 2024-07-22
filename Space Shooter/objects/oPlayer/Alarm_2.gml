@@ -1,3 +1,4 @@
+/// @description Reset everything after dying
 dead=1
 beauty_transition(rMenu, c_white)
 rotation=1
