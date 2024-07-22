@@ -8,7 +8,7 @@ if global.pause=0 {
 	}
 
 } else if global.pause=1 && room=rGame {
-	if global.options=0 && global.changelog=0{
+	if global.options=0 {
 		global.menudeac=0
 	} 
 	if !layer_sequence_exists("pause",pause_seq) {

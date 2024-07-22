@@ -12,7 +12,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"menu",
-    "path":"folders/Objects/buttons/menu.yy",
+    "path":"folders/Objects/buttons/config/menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,

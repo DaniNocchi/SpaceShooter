@@ -25,48 +25,9 @@ if global.options=1 {
 			global.optfinish=1
 			instance_activate_layer("configs")	
 		}
-		
-		
-		
-		
-		
-		
 } else {
 	layer_sequence_destroy(options_sq);
 	instance_deactivate_layer("configs")
-}
-#endregion
-#region changelog 
-if keyboard_check_released(vk_escape) && global.changelog=1 {
-	global.changelog=0
-	global.menudeac=0
-	global.optfinish=0
-} 
-
-
-if global.changelog=1 {
-	global.options=0
-	global.optfinish=0
-	global.menudeac=1
-	switch global.translation {
-		case 1:
-			if !layer_sequence_exists("sequences",changelog_sq) {
-				changelog_sq = layer_sequence_create("sequences",0,0,seChangelog)
-			}
-		break;
-		case 2:
-			if !layer_sequence_exists("sequences",changelog_sq) {
-				changelog_sq = layer_sequence_create("sequences",0,0,seChangelogPT)
-			}
-		break;
-		case 3:
-			if !layer_sequence_exists("sequences",changelog_sq) {
-				changelog_sq = layer_sequence_create("sequences",0,0,seChangelogES)
-			}
-		break;
-	}
-} else {
-	layer_sequence_destroy(changelog_sq)
 }
 #endregion
 #region unnecessary sprite bugfix
