@@ -4,7 +4,7 @@ if place_meeting(x, y, oMouse) {
 		audio_play_sound(soInteract,1,0)
 		global.options=1
 		global.menudeac=1
-				escx = 0.8 
+		escx = 0.8 
 		escy = 0.8
 	}
 }

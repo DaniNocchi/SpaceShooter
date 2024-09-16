@@ -1,1 +1,1 @@
-shotcolquiet = 1
+shotcolbomb = 1

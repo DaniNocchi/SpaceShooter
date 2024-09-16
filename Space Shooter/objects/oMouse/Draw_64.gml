@@ -1,2 +1,5 @@
-draw_self()
-
+draw_set_font(fDefault)
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_text(15,15,global.soundsvolume)
+draw_text(15,30,global.musicvolume)

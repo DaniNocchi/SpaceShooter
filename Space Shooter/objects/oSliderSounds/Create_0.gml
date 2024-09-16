@@ -1,4 +1,6 @@
-value = global.soundsvolume/100
+_sounds = 0
+GetSounds()
+value = _sounds/100
 color = c_white
 boolean=false
 

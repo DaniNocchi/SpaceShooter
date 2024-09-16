@@ -1,5 +1,5 @@
-change_value()
 global.musicvolume = value*100
+change_value()
 if boolean=true {
 	if	!mouse_check_button(mb_left) {
 		boolean=false

@@ -1,6 +1,5 @@
-   x=mouse_x
+x=mouse_x
 y=mouse_y
-draw_self()
 if global.bestscore2="" global.bestscore2=0
 audio_group_set_gain(sounds,global.soundsvolume/100,30)
 audio_group_set_gain(music,global.musicvolume/100,30)
@@ -8,6 +7,7 @@ if global.soundsvolume>100 {global.soundsvolume=100} else if global.soundsvolume
 if global.musicvolume>100 {global.musicvolume=100} else if global.musicvolume<0{global.musicvolume=0}
 steam_update()
 
+#region easter egg 69
 if place_meeting(x,y,oPlayer) {
 	if mouse_check_button_released(mb_left) {
 		if global.count=69 { 
@@ -18,12 +18,8 @@ if place_meeting(x,y,oPlayer) {
 		}    
 	}
 }
-
- 
-
-
-
-
+#endregion
+#region achievements steam
 if global.bestscore2>=500 {
 	if !steam_get_achievement("record500") {
 		steam_set_achievement("record500")
@@ -73,3 +69,11 @@ if global.deaths>=50 {
 
 steam_set_stat_float("death", global.deaths)
 steam_set_stat_float("maxp", global.bestscore2)
+#endregion
+
+
+
+if global.skin = sPlayerSupporter {
+	
+}	
+

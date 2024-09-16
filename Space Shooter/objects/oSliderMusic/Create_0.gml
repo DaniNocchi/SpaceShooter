@@ -1,4 +1,6 @@
-value = global.musicvolume/100
+_music = 0
+GetMusic()
+value = _music/100
 color = c_white
 boolean=false
 
@@ -9,6 +11,7 @@ draw_slider = function() {
 		draw_self()
 		draw_sprite_part_ext(sprite_index,0,0,0,sprite_width*value,sprite_height, x, y - sprite_yoffset, 1, 1, c_grey, 1)
 		draw_sprite_ext(sSliderBolinha, 0, _xbolinha, y, 1, 1, 0, color, 1)
+		draw_text(15,45,string(_music))
 	}
 }
 change_value = function() {	

@@ -5,16 +5,30 @@ escy=lerp(escy, image_yscale, 0.2)
 draw_set_font(fButtons)
 draw_set_halign(fa_middle)
 draw_set_valign(fa_middle)
-switch global.translation {
-	case 1:
-	draw_text_transformed(x,y,"QUIT",escx,escy,0)
-	break
-	case 2:
-	draw_text_transformed(x,y,"SAIR",escx,escy,0)
-	break
-	case 3:
-	draw_text_transformed(x,y,"SALIR",escx,escy,0)
-	break
+if room=rMenu {
+	switch global.translation {
+		case 1:
+		draw_text_transformed(x,y,"QUIT",escx-0.75,escy,0)
+		break
+		case 2:
+		draw_text_transformed(x,y,"SAIR",escx-0.75,escy,0)
+		break
+		case 3:
+		draw_text_transformed(x,y,"SALIR",escx-0.75,escy,0)
+		break
+	}
+} else {
+		switch global.translation {
+		case 1:
+		draw_text_transformed(x,y,"QUIT",escx,escy,0)
+		break
+		case 2:
+		draw_text_transformed(x,y,"SAIR",escx,escy,0)
+		break
+		case 3:
+		draw_text_transformed(x,y,"SALIR",escx,escy,0)
+		break
+	}
 }
 draw_set_halign(fa_right)
 draw_set_valign(fa_top)

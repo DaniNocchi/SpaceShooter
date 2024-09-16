@@ -9,13 +9,13 @@ draw_set_halign(fa_middle)
 draw_set_valign(fa_middle)
 switch global.translation {
 	case 1:
-	draw_text_transformed(x,y,"START",escx,escy,0)
+	draw_text_transformed(x,y,"START",escx-0.75,escy,0)
 	break
 	case 2:
-	draw_text_transformed(x,y,"INICIAR",escx,escy,0)
+	draw_text_transformed(x,y,"INICIAR",escx-0.75,escy,0)
 	break
 	case 3:
-	draw_text_transformed(x,y,"INICIAR",escx,escy,0)
+	draw_text_transformed(x,y,"INICIAR",escx-0.75,escy,0)
 	break
 }
 draw_set_halign(fa_right)

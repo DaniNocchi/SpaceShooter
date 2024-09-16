@@ -46,6 +46,7 @@
     {"name":"inst_411A342A","path":"rooms/rGame/rGame.yy",},
     {"name":"inst_2AA8B054","path":"rooms/rGame/rGame.yy",},
     {"name":"inst_7D3BDF7C","path":"rooms/rGame/rGame.yy",},
+    {"name":"inst_55B0ECFD","path":"rooms/rGame/rGame.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -98,6 +99,7 @@
         {"$GMRInstance":"v1","%Name":"inst_54D00DC2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_54D00DC2","objectId":{"name":"oDiscordRichPresence","path":"objects/oDiscordRichPresence/oDiscordRichPresence.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1216.0,"y":480.0,},
         {"$GMRInstance":"v1","%Name":"inst_55964761","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_55964761","objectId":{"name":"oEasteregg","path":"objects/oEasteregg/oEasteregg.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":5.0,"scaleY":1.0,"x":512.0,"y":0.0,},
         {"$GMRInstance":"v1","%Name":"inst_789749B7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_789749B7","objectId":{"name":"oLanguage","path":"objects/oLanguage/oLanguage.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":672.0,"y":224.0,},
+        {"$GMRInstance":"v1","%Name":"inst_55B0ECFD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_55B0ECFD","objectId":{"name":"obj_gmlive","path":"objects/obj_gmlive/obj_gmlive.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":192.0,},
       ],"layers":[],"name":"player","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
         {"$GMRSpriteGraphic":"","%Name":"graphic_5A3866A2","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_5A3866A2","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":5.0,"scaleY":1.0,"spriteId":{"name":"sBase","path":"sprites/sBase/sBase.yy",},"x":512.0,"y":0.0,},

@@ -1,56 +1,30 @@
+if live_call() return live_result
+
+
 #region inputs
 if move=1 {
-keyleft = keyboard_check(vk_left) or keyboard_check(ord("A"))
-keyright = keyboard_check(vk_right) or keyboard_check(ord("D"))
-keydown = keyboard_check(vk_down) or keyboard_check(ord("S"))
-keyup = keyboard_check(vk_up) or keyboard_check(ord("W"))
-keymbl = mouse_check_button(mb_left) or keyboard_check(vk_space)
-keymblrel = mouse_check_button_released(mb_left) or keyboard_check_released(vk_space)
+	keyleft = keyboard_check(vk_left) or keyboard_check(ord("A"))
+	keyright = keyboard_check(vk_right) or keyboard_check(ord("D"))
+	keydown = keyboard_check(vk_down) or keyboard_check(ord("S"))
+	keyup = keyboard_check(vk_up) or keyboard_check(ord("W"))
+	keymbl = mouse_check_button(mb_left) or keyboard_check(vk_space)
+	keymbr = mouse_check_button_released(mb_right) or keyboard_check_released(vk_control)
 }
 #endregion
 #region walk
-x+=hspd
-y+=vspd
+if keyright { hspd= lerp(hspd,maxspd,spd) }
+if keyleft { hspd= lerp(hspd,-maxspd,spd) }
+if !keyright and !keyleft { hspd= lerp(hspd,0,spd) }
 
-if keyleft=true {
-	if hspd>-maxspd {
-		hspd-=spd
-	}
-} else if keyleft=false {
-	if hspd<0 {
-		hspd+=spd
-	}
-}
-//-----\\ RIGHT HSPD
-if keyright=true {
-	if hspd<maxspd {
-		hspd+=spd
-	}
-} else if keyright=false {
-	if hspd>0 {
-		hspd-=spd
-	}
-}
-//-----\\ UP VSPD
-if keyup=true {
-	if vspd>-maxspd {
-		vspd-=spd
-	}
-} else if keyup=false {
-	if vspd<0 {
-		vspd+=spd
-	}
-}
-//-----\\ DOWN VSPD
-if keydown=true {
-	if vspd<maxspd {
-		vspd+=spd
-	}
-} else if keydown=false {
-	if vspd>0 {
-		vspd-=spd
-	}
-}
+if keydown { vspd= lerp(vspd,maxspd,spd) }
+if keyup { vspd= lerp(vspd,-maxspd,spd) }
+if !keyup and !keydown { vspd= lerp(vspd,0,spd) }
+	
+hspd = clamp(hspd,-maxspd,maxspd)
+vspd = clamp(vspd,-maxspd,maxspd)
+
+x += hspd
+y += vspd
 #endregion
 #region observe the mouse
 if rotation=1 {
@@ -59,52 +33,47 @@ if rotation=1 {
 #endregion
 
 #region shot (normal)
-if global.bombs=0 {
-	if (shotcol == 1) {
-	    if (keymbl) {
-			audio_play_sound(soShoot,1,0)
-	        var bulletInstance = instance_create_layer(x, y,"everything",oBullet);
-	        bulletInstance.direction = point_direction(x, y, mouse_x, mouse_y);
-	        bulletInstance.speed = 8;
-	        bulletInstance.playerBullet = true;
-	        shotcol = 0;
-	        alarm[0] = room_speed * shotfre;
-		}
+if (shotcol == 1) {
+    if (keymbl) {
+		audio_play_sound(soShoot,1,0)
+        var bulletInstance = instance_create_layer(x, y,"everything",oBullet);
+        bulletInstance.direction = point_direction(x, y, mouse_x, mouse_y);
+        bulletInstance.speed = 8;
+        bulletInstance.playerBullet = true;
+        shotcol = 0;
+        alarm[0] = room_speed * shotfre;
+		start_screen_shake(0.45,12)
 	}
 }
 #endregion
 #region shot (three rows)
-if global.bombs=0 {
+if (keymbl) {
 	if trows=1 {
-		if (keymbl) {
-			if (shotcolquiet == 1) {
-				var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
-		        bulletInstancequiet.direction = point_direction(x, y, mouse_x+45, mouse_y+45);
-		        bulletInstancequiet.speed = 8;
-		        bulletInstancequiet.playerBullet = true;
-				shotcolquiet = 0 
-				alarm[5] = room_speed * shotfre;
-				
-				var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
-		        bulletInstancequiet.direction = point_direction(x, y, mouse_x-45, mouse_y-45);
-		        bulletInstancequiet.speed = 8;
-		        bulletInstancequiet.playerBullet = true;
-				shotcolquiet = 0 
-				alarm[5] = room_speed * shotfre;
-			}
+		if (shotcolquiet == 1) {
+			start_screen_shake(0.55,17)
+			var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
+	        bulletInstancequiet.direction = point_direction(x, y, mouse_x+45, mouse_y+45);
+	        bulletInstancequiet.speed = 8;
+	        bulletInstancequiet.playerBullet = true;
+			alarm[6] = room_speed * shotfre;
+			
+			var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
+	        bulletInstancequiet.direction = point_direction(x, y, mouse_x-45, mouse_y-45);
+	        bulletInstancequiet.speed = 8;
+	        bulletInstancequiet.playerBullet = true;
+			shotcolquiet = 0 
+			alarm[6] = room_speed * shotfre;
 		}
 	}
 }
 #endregion
 #region shot (bombs)
 if global.bombs>0 {
-if (shotcol == 1) {
-	    if (keymblrel) {
-	        instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
-	        shotcol = 0;
-			if global.bombs>1 {
-	        alarm[0] = room_speed * 3;
-			} else { alarm[0] = room_speed * shotfre; } 
+	if (shotcolbomb == 1) {
+		if (keymbr) {
+		    instance_create_layer(mouse_x,mouse_y,"everything",oBomb)
+		    shotcolbomb = 0;
+			alarm[5] = room_speed * 3;
 			global.breload=0
 		}
 	} 
@@ -113,11 +82,9 @@ if (shotcol == 1) {
 
 #region damage (meteors)
 if hitcooldown=1 {
-	if place_meeting(x,y,oBigmeteor) or place_meeting(x,y,oSmallmeteor) { 
-		sprite_index=sPhit
-		alarm[1]=room_speed*3
-		global.lives-=1
-		hitcooldown=0
+	if place_meeting(x,y,oBigmeteor) or place_meeting(x,y,oSmallmeteor) {
+		damaged=1
+		global.lives-=1 
 		audio_play_sound(soHit,1,0)
 	}
 }
@@ -125,10 +92,8 @@ if hitcooldown=1 {
 #region damage (wall)
 if hitcooldown=1 {
 	if place_meeting(x,y,oWall) { 
-		sprite_index=sPhit
-		alarm[1]=room_speed*3
-		global.lives-=1
-		hitcooldown=0
+		damaged=1
+		global.lives-=1 
 		audio_play_sound(soHit,1,0)
 	} 
 }
@@ -266,6 +231,29 @@ if global.hab3=7 {
 }
 #endregion
 
+#region damage system
+if damaged=1 {
+	hitcooldown=0
+	if DamageBoolean=1{
+		if repeated < 12 {
+			repeated++
+			alarm[1] = room_speed*0.25;
+			DamageBoolean=0
+			damageSkin= !damageSkin
+			if damageSkin= 0 { image_alpha=0 } else { image_alpha=1 }
+			if sprite_index = sEmpty { sprite_index = global.skin } 
+		} else {
+			sprite_index= global.skin
+			repeated=0
+			damaged=0
+			hitcooldown=1
+			image_alpha=1
+		}
+	}
+}
+#endregion
+global.skin=sPlayer
+
 #region bug fixes
 if hab3dispbomb=1 && global.bombs=0 {
 	global.hab3disp=0
@@ -284,4 +272,10 @@ if global.bombs>0 {
 }
 #endregion
 
-if keyboard_check(vk_control) { habrandom=4 }
+var PartWalkDir= 180
+PartWalkDir = image_angle + 180  mod 360 
+part_system_position(WalkParticle, oPlayer.x, oPlayer.y)
+part_type_orientation(0,PartWalkDir,PartWalkDir,0,0,true)
+part_type_direction(0,PartWalkDir,PartWalkDir,0,0)
+part_type_speed(0,10,5,0,0)
+part_emitter_stream(WalkParticle,0,0,1)

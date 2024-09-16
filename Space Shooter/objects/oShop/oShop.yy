@@ -12,7 +12,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"menu",
-    "path":"folders/Objects/buttons/config/menu.yy",
+    "path":"folders/Objects/buttons/menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sButton",
-    "path":"sprites/sButton/sButton.yy",
+    "name":"sButtonDark",
+    "path":"sprites/sButtonDark/sButtonDark.yy",
   },
   "spriteMaskId":null,
   "visible":true,
