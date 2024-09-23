@@ -89,4 +89,4 @@ switch global.translation {
 		draw_text(670,12,"Oleada "+string(global.wave))
 	break
 }
-draw_sprite_ext(global.skin,image_index,x,y,1,1,image_angle,c_white,image_alpha)
+draw_sprite_ext(sPlayer,image_index,x,y,1,1,image_angle,c_white,image_alpha)

@@ -252,7 +252,6 @@ if damaged=1 {
 	}
 }
 #endregion
-global.skin=sPlayer
 
 #region bug fixes
 if hab3dispbomb=1 && global.bombs=0 {
@@ -272,10 +271,12 @@ if global.bombs>0 {
 }
 #endregion
 
-var PartWalkDir= 180
-PartWalkDir = image_angle + 180  mod 360 
+global.skin=sPlayer
 part_system_position(WalkParticle, oPlayer.x, oPlayer.y)
-part_type_orientation(0,PartWalkDir,PartWalkDir,0,0,true)
-part_type_direction(0,PartWalkDir,PartWalkDir,0,0)
+
+var _angle = point_direction(x+hspd,y+hspd,mouse_x,mouse_y)
+part_system_angle(WalkParticle,image_angle)
+part_type_direction(0,_angle,_angle,0,0)
+part_type_orientation(0,_angle,_angle,0,0,true)
 part_type_speed(0,10,5,0,0)
 part_emitter_stream(WalkParticle,0,0,1)

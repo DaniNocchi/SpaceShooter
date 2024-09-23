@@ -8,7 +8,7 @@ if place_meeting(x, y, oMouse) && global.menudeac=0 {
 		escx = 0.8 
 		escy = 0.8
 		audio_play_sound(soInteract,1,0)
-		beauty_transition(rSkins, #ffffff)
+		beauty_transition(rShop, #ffffff)
 	}
 } else {
 	sprite_index=sButton
