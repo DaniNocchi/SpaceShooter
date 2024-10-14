@@ -1,5 +1,12 @@
-for (var i = 0; i < array_length(global.SkinInventory); i++) {
-    instance_create_layer(_x + (_distance * i), _y + sprite_get_height(global.SkinInventory[i]) + 15, "buttons", oSelect, {
-        skin: global.SkinInventory[i]
-    });
+if buttonsIndex < array_length(global.SkinInventory) {
+    instance_create_layer(_x + (_distance * buttonsIndex), _y + sprite_get_height(global.SkinInventory[buttonsIndex]) + 15, "buttons", oSelect, {
+        skin: global.SkinInventory[buttonsIndex]
+	})
+	buttonsIndex++
 }
+if keyboard_check_released(vk_escape) {
+	save_game()
+	beauty_transition(rMenu,c_white)
+}
+
+

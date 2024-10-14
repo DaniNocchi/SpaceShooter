@@ -10,6 +10,11 @@ if place_meeting(x,y,oMouse) && global.menudeac=0 {
 		} else if room=rGame {
 			escx = 0.8 
 			escy = 0.8
+			instance_activate_layer("player")
+			if part_system_exists(oPlayer.WalkParticle) {
+				part_system_destroy(oPlayer.WalkParticle)
+			}
+			instance_deactivate_layer("player")
 			audio_play_sound(soInteract,1,0)
 			beauty_transition(rMenu, #ffffff)
 			gmda_submit(1,global.count)

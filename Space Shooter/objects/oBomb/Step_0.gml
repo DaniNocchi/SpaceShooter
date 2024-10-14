@@ -1,14 +1,12 @@
 if layer_sequence_is_finished(bombfall_seq) = true {
 	global.bdamage=1
 	layer_sequence_destroy(bombfall_seq)
-	explosion_seq = layer_sequence_create("sequences",x,y,seExplosion)
+	ExplosionParticle = part_system_create(partExplosion)
+	ExplosionIndex = part_emitter_create(ExplosionParticle)
+	part_system_position(ExplosionParticle, oBomb.x, oBomb.y)
+	part_system_layer(ExplosionParticle,"Particles")
 	audio_play_sound(soExplosion, 1, 0)
 	start_screen_shake(1.5, 6, 0);
-}
-
-if layer_sequence_is_finished(explosion_seq) = true {
-	global.bdamage=0
-	layer_sequence_destroy(explosion_seq)
-	instance_destroy(area)
-	instance_destroy()
+	oArea.areaAlpha = 0 
+	alarm[0] = room_speed*0.5
 }

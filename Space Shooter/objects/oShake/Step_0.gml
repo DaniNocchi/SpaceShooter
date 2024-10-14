@@ -8,8 +8,11 @@ if (ShakeTime > 0) {
     
     // Aplica a posição da câmera
     camera_set_view_pos(view_camera[CamNumber], camX, camY);
-} else {
-    // Reseta a posição da câmera quando o shake termina
+} else if OrigCamX != 0 or OrigCamY!= 0 {
+	OrigCamX = lerp(OrigCamX,0,0.1)
+	OrigCamY = lerp(OrigCamY,0,0.1)
     camera_set_view_pos(view_camera[CamNumber], OrigCamX, OrigCamY);
+} else {
 	instance_destroy()
+	camera_set_view_pos(view_camera[CamNumber], OrigCamX, OrigCamY);
 }

@@ -1,0 +1,1 @@
+part_system_position(WalkParticle, 10000,10000)

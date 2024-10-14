@@ -12,32 +12,47 @@ if move=1 {
 }
 #endregion
 #region walk
-if keyright { hspd= lerp(hspd,maxspd,spd) }
-if keyleft { hspd= lerp(hspd,-maxspd,spd) }
-if !keyright and !keyleft { hspd= lerp(hspd,0,spd) }
-
-if keydown { vspd= lerp(vspd,maxspd,spd) }
-if keyup { vspd= lerp(vspd,-maxspd,spd) }
-if !keyup and !keydown { vspd= lerp(vspd,0,spd) }
+if global.os=0 {
+	if keyright { hspd= lerp(hspd,maxspd,spd) }
+	if keyleft { hspd= lerp(hspd,-maxspd,spd) }
+	if !keyright and !keyleft { hspd= lerp(hspd,0,spd) }
 	
+	if keydown { vspd= lerp(vspd,maxspd,spd) }
+	if keyup { vspd= lerp(vspd,-maxspd,spd) }
+	if !keyup and !keydown { vspd= lerp(vspd,0,spd) }
+}
 hspd = clamp(hspd,-maxspd,maxspd)
 vspd = clamp(vspd,-maxspd,maxspd)
-
 x += hspd
 y += vspd
+x=clamp(x,0,room_width)
+y=clamp(y,0,room_height)
 #endregion
 #region observe the mouse
 if rotation=1 {
+	if global.os=0 {
 	image_angle= point_direction(x,y,mouse_x,mouse_y)
+	} else {
+		image_angle= mobileAngle
+	}
 }
 #endregion
 
 #region shot (normal)
 if (shotcol == 1) {
-    if (keymbl) {
+    if (keymbl and global.os=0) {
 		audio_play_sound(soShoot,1,0)
         var bulletInstance = instance_create_layer(x, y,"everything",oBullet);
         bulletInstance.direction = point_direction(x, y, mouse_x, mouse_y);
+        bulletInstance.speed = 8;
+        bulletInstance.playerBullet = true;
+        shotcol = 0;
+        alarm[0] = room_speed * shotfre;
+		start_screen_shake(0.45,12)
+	} else if global.os=1 and mobileShoot=1 {
+		audio_play_sound(soShoot,1,0)
+        var bulletInstance = instance_create_layer(x, y,"everything",oBullet);
+        bulletInstance.direction = mobileAngle
         bulletInstance.speed = 8;
         bulletInstance.playerBullet = true;
         shotcol = 0;
@@ -47,7 +62,25 @@ if (shotcol == 1) {
 }
 #endregion
 #region shot (three rows)
-if (keymbl) {
+if (keymbl and global.os=0) {
+	if trows=1 {
+		if (shotcolquiet == 1) {
+			start_screen_shake(0.55,17)
+			var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
+	        bulletInstancequiet.direction = mobileAngle + 45
+	        bulletInstancequiet.speed = 8;
+	        bulletInstancequiet.playerBullet = true;
+			alarm[6] = room_speed * shotfre;
+			
+			var bulletInstancequiet = instance_create_layer(x, y,"everything",oBulletQuiet);
+	        bulletInstancequiet.direction =  mobileAngle-45
+	        bulletInstancequiet.speed = 8;
+	        bulletInstancequiet.playerBullet = true;
+			shotcolquiet = 0 
+			alarm[6] = room_speed * shotfre;
+		}
+	}
+} else if global.os=1 and mobileShoot=1 {
 	if trows=1 {
 		if (shotcolquiet == 1) {
 			start_screen_shake(0.55,17)
@@ -81,23 +114,18 @@ if global.bombs>0 {
 #endregion
 
 #region damage (meteors)
+
 if hitcooldown=1 {
 	if place_meeting(x,y,oBigmeteor) or place_meeting(x,y,oSmallmeteor) {
 		damaged=1
 		global.lives-=1 
 		audio_play_sound(soHit,1,0)
+		DamageParticle = part_system_create(partDamage)
+		DamageIndex = part_emitter_create(DamageParticle)
+		part_system_position(DamageParticle, oPlayer.x, oPlayer.y)
+		part_system_layer(DamageParticle,"Particles")
 	}
 }
-#endregion
-#region damage (wall)
-if hitcooldown=1 {
-	if place_meeting(x,y,oWall) { 
-		damaged=1
-		global.lives-=1 
-		audio_play_sound(soHit,1,0)
-	} 
-}
-if place_meeting(x,y,oWall) {outwarn=1} else {outwarn=0}
 #endregion
 #region gameover
 if global.lives<=0 {
@@ -107,6 +135,7 @@ if global.lives<=0 {
 	hspd=0
 	vspd=0
 	move=0
+	
 	if gameovercol=1 { 
 		alarm[2]=room_speed*1
 		gameovercol=0
@@ -140,8 +169,8 @@ if oldwave != global.wave {
 	var _habwillhappen = choose(1,2) //PUT HERE THE NUMBER 2 TOO AFTER TESTING EVERYTHING
 	if _habwillhappen = 1 {
 		
-	habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs
-	//habrandom = 7 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs
+	habrandom = choose(1,1,1,2,3,3,3,3,4,4,5,5,5,6,6,7,7,7,8,8,8) //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs, 8 +1 lives
+	//habrandom = 7 //1 speed, 2 2x points, 3 speed shot, 4 trows, 5 shield, 6 time freeze, 7 bombs, 8 +1 lives
 	
 	_habwillhappen=0
 	} else if _habwillhappen = 2 {
@@ -153,25 +182,28 @@ if oldwave != global.wave {
 #endregion
 #region habilities lil' square thingy that spawn yk
 if habrandom = 1 && !instance_exists(oHabSpeed) {
-	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728+40),"everything",oHabSpeed)
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHabSpeed)
+	habrandom=0																									 
+} else if habrandom = 2 && !instance_exists(oHab2x) {							 
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHab2x)
+	habrandom=0																									 
+} else if habrandom = 3 && !instance_exists(oHabSpeedShoot) {			 
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHabSpeedShoot)
+	habrandom=0																									 
+} else if habrandom = 4 && !instance_exists(oHabTRows) {					 
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHabTRows)
+	habrandom=0																									 
+} else if habrandom = 5 && !instance_exists(oHabShield) {						 
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHabShield)
+	habrandom=0																									 
+} else if habrandom = 6 && !instance_exists(oHabFreeze) {					 
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHabFreeze)
+	habrandom=0																									 
+} else if habrandom = 7 && !instance_exists(oHabBombs) {					 
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHabBombs)
 	habrandom=0
-} else if habrandom = 2 && !instance_exists(oHab2x) {
-	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728+40),"everything",oHab2x)
-	habrandom=0
-} else if habrandom = 3 && !instance_exists(oHabSpeedShoot) {
-	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728+40),"everything",oHabSpeedShoot)
-	habrandom=0
-} else if habrandom = 4 && !instance_exists(oHabTRows) {
-	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728+40),"everything",oHabTRows)
-	habrandom=0
-} else if habrandom = 5 && !instance_exists(oHabShield) {
-	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728+40),"everything",oHabShield)
-	habrandom=0
-} else if habrandom = 6 && !instance_exists(oHabFreeze) {
-	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728+40),"everything",oHabFreeze)
-	habrandom=0
-} else if habrandom = 7 && !instance_exists(oHabBombs) {
-	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728+40),"everything",oHabBombs)
+} else if habrandom = 8 && !instance_exists(oHabLife) {					 
+	var _hab3 = instance_create_layer(irandom(1350)+16,irandom(728)+40,"everything",oHabLife)
 	habrandom=0
 }//put more powers
 #endregion
@@ -229,6 +261,13 @@ if global.hab3=7 {
 	global.hab3=0
 	hab3dispbomb=1
 }
+//Life
+if global.hab3=8 {
+	global.hab3=0
+	if global.lives<3 {
+		global.lives+=1
+	}
+}
 #endregion
 
 #region damage system
@@ -240,8 +279,13 @@ if damaged=1 {
 			alarm[1] = room_speed*0.25;
 			DamageBoolean=0
 			damageSkin= !damageSkin
-			if damageSkin= 0 { image_alpha=0 } else { image_alpha=1 }
+			if damageSkin= 0 { 
+				image_alpha=0 
+			} else { 
+				 image_alpha=1
+			}
 			if sprite_index = sEmpty { sprite_index = global.skin } 
+			
 		} else {
 			sprite_index= global.skin
 			repeated=0
@@ -260,23 +304,47 @@ if hab3dispbomb=1 && global.bombs=0 {
 }
 
 if global.bombs>0 {
-	if shotcol=0 {
-		if boolreload=0 {
-			if global.breload<=3 {
-				alarm[4] = room_speed*0.5;
-				boolreload=1
-			}
+	if boolreload=0 {
+		if global.breload<=3 {
+			alarm[4] = room_speed*0.1;
+			boolreload=1
 		}
 	}
 }
 #endregion
 
-global.skin=sPlayer
-part_system_position(WalkParticle, oPlayer.x, oPlayer.y)
+#region	Particles
+	#region Running  
+	//setando a particula pra ela funcionar legal
+	part_system_position(WalkParticle, oPlayer.x, oPlayer.y)
+	part_system_layer(WalkParticle,"Particles")
+	var _angle=point_direction(x,y,x-hspd,y-vspd)
+	part_type_direction(2,_angle,_angle,0,0)
+	//fazendo ela aparecer e desaparecer na hora certa
+	if global.hab3disp = 1 {
+		if move=1 {
+			if keydown or keyup or keyleft or keyright {
+				part_type_life(2,15,15)
+			} else {
+				part_type_life(2,0,0)
+			}
+		} else {
+			part_type_life(2,0,0)
+		}
+	} else {
+		part_type_life(2,0,0)
+	}
+	//spawnando a propria
+	part_emitter_stream(WalkParticle,WalkIndex,2,1)
+	#endregion
+#endregion
+global.skin = sPlayer
 
-var _angle = point_direction(x+hspd,y+hspd,mouse_x,mouse_y)
-part_system_angle(WalkParticle,image_angle)
-part_type_direction(0,_angle,_angle,0,0)
-part_type_orientation(0,_angle,_angle,0,0,true)
-part_type_speed(0,10,5,0,0)
-part_emitter_stream(WalkParticle,0,0,1)
+if keyboard_check_released(ord("1")) { habrandom =  1 }
+if keyboard_check_released(ord("2")) { habrandom =  2 }
+if keyboard_check_released(ord("3")) { habrandom =  3 }
+if keyboard_check_released(ord("4")) { habrandom =  4 }
+if keyboard_check_released(ord("5")) { habrandom =  5 }
+if keyboard_check_released(ord("6")) { habrandom =  6 }
+if keyboard_check_released(ord("7")) { habrandom =  7 }
+if keyboard_check_released(ord("8")) { habrandom =  8 }

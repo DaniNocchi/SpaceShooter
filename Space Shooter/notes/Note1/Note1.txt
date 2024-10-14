@@ -1,9 +1,6 @@
 1.3
-sistema de economia ja funcionando  
-animações mais bonitas
-sistema de loja
-skins diferentes
-botar sistema de missões
-
-
-
+----- particula de correr
+----- particula de dano
+----- hab mais vida
+----- sistema re-feito de escrever o nome
+----- re fazer a explosão

@@ -46,3 +46,10 @@ damageSkin=0
 global.PartWalkToggle = 0
 WalkParticle = part_system_create(partWalking)
 WalkIndex = part_emitter_create(WalkParticle)
+WalkBool = 0
+
+skinIndex = 1
+skinIndexTimer = 0 
+
+mobileShoot=0
+mobileAngle=0

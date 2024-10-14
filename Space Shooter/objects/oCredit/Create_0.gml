@@ -5,3 +5,4 @@ back=0
 boolmouse=0
 escx=1
 escy=1
+instance_deactivate_layer("credits")

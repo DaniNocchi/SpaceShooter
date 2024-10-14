@@ -21,6 +21,9 @@ var _SaveData = array_create(0)
 }
 
 function load_game() { //load the specified variables from the file "svsa.dat"
+		if file_exists("svs.dat") {
+			file_delete("svs.dat")
+		}
 	if !file_exists("svsa.dat") {
         global.soundsvolume=30
         global.musicvolume=50
@@ -28,9 +31,6 @@ function load_game() { //load the specified variables from the file "svsa.dat"
 		global.translation=1
 		global.deaths=0
 		global.skin=sPlayer
-		if file_exists("svs.dat") {
-			file_delete("svs.dat")
-		}
 		save_game()
 	} else {
 		var _buffer = buffer_load("svsa.dat")

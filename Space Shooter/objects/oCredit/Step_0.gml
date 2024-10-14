@@ -32,8 +32,6 @@ if place_meeting(x,y,oMouse) && global.menudeac=0 {
 		}
 		break;
 		}
-		
-		
 		global.menudeac=1
 	}
 } else {
@@ -41,7 +39,12 @@ if place_meeting(x,y,oMouse) && global.menudeac=0 {
 	boolmouse=0
 }
 
+if layer_sequence_is_finished(credits_sq) {
+	instance_activate_layer("credits")
+}
+
 if keyboard_check_released(vk_escape) && layer_sequence_exists("sequences",credits_sq) {
 	layer_sequence_destroy(credits_sq)	
 	global.menudeac=0
+	instance_deactivate_layer("credits")
 } 
