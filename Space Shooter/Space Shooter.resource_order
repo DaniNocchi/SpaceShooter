@@ -44,6 +44,7 @@
     {"name":"fPointsText","order":3,"path":"fonts/fPointsText/fPointsText.yy",},
     {"name":"oArea","order":1,"path":"objects/oArea/oArea.yy",},
     {"name":"oBack","order":3,"path":"objects/oBack/oBack.yy",},
+    {"name":"oBack2","order":4,"path":"objects/oBack2/oBack2.yy",},
     {"name":"obj_gmlive","order":6,"path":"objects/obj_gmlive/obj_gmlive.yy",},
     {"name":"oBlank","order":14,"path":"objects/oBlank/oBlank.yy",},
     {"name":"oBullet","order":1,"path":"objects/oBullet/oBullet.yy",},

@@ -115,6 +115,7 @@
     {"id":{"name":"mSummoner","path":"objects/mSummoner/mSummoner.yy",},},
     {"id":{"name":"oArea","path":"objects/oArea/oArea.yy",},},
     {"id":{"name":"oBack","path":"objects/oBack/oBack.yy",},},
+    {"id":{"name":"oBack2","path":"objects/oBack2/oBack2.yy",},},
     {"id":{"name":"oBigmeteor","path":"objects/oBigmeteor/oBigmeteor.yy",},},
     {"id":{"name":"obj_button_getachievement","path":"objects/obj_button_getachievement/obj_button_getachievement.yy",},},
     {"id":{"name":"obj_button_getrecoveycode","path":"objects/obj_button_getrecoveycode/obj_button_getrecoveycode.yy",},},

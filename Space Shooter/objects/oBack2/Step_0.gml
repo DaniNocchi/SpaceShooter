@@ -19,7 +19,7 @@ if room = rMenu {
 }
 
 if room = rGame {
-	if global.pause = 0 {
+	if global.pause = 1 {
 		if place_meeting(x,y,oMouse) {
 			sprite_index=sBackBlack
 			if boolmouse=0 {
@@ -37,6 +37,8 @@ if room = rGame {
 			sprite_index=sBack
 			boolmouse=0
 		}
-	} 
+	} else {
+		sprite_index=sEmpty
+	}
 }
 

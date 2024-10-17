@@ -25,7 +25,7 @@ switch global.translation {
 if global.bombs>0 {
 	switch global.translation {
 		case 1:
-			draw_text(x,y-85,string(global.bombs)+" bombs left")
+			draw_text(x,y-85,string(global.bombs)+"	bombs left")
 		break
 		case 2:
 			draw_text(x,y-85,string(global.bombs)+" Bombas restantes")
